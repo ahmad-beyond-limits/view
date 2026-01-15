@@ -8,6 +8,7 @@ import { ExperienceSection } from './components/ExperienceSection';
 import { ToolsGrid } from './components/ToolsGrid';
 import { Education } from './components/Education';
 import { DesignThoughts } from './components/DesignThoughts';
+import { Research } from './components/Research';
 import { Certifications } from './components/Certifications';
 import { Achievements } from './components/Achievements';
 import { Languages } from './components/Languages';
@@ -18,7 +19,7 @@ const App: React.FC = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['home', 'projects', 'experience', 'certifications', 'tools', 'education', 'achievements', 'languages', 'thoughts', 'contact'];
+      const sections = ['home', 'projects', 'experience', 'research', 'certifications', 'tools', 'education', 'achievements', 'languages', 'thoughts', 'contact'];
       const scrollPosition = window.scrollY + 150; // Slightly larger offset for smoother activation
 
       for (const section of sections) {
@@ -59,6 +60,10 @@ const App: React.FC = () => {
 
         <section id="experience" className="scroll-mt-32">
           <ExperienceSection />
+        </section>
+
+        <section id="research" className="scroll-mt-32">
+          <Research />
         </section>
 
         <section id="certifications" className="scroll-mt-32">

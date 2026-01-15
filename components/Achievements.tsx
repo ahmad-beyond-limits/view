@@ -55,10 +55,10 @@ export const Achievements: React.FC = () => {
         },
         {
             id: 8,
-            title: "Google Tunix Competition",
-            organization: "Google",
+            title: "MedGemma Impact Challenge",
+            organization: "Google research",
             date: "*",
-            description: "Participated in the Google Tunix Competition."
+            description: "Participated in the MedGemma Impact Challenge."
         }
     ];
 

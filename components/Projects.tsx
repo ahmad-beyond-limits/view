@@ -194,29 +194,23 @@ export const Projects: React.FC = () => {
   return (
     <div>
       <ProjectSection
+        title="DATA SCIENCE"
+        outlinedTitle="& ANALYTICS"
+        projects={dataProjects}
+        isSticky={true}
+      />
+      <ProjectSection
         title="DESIGN"
         outlinedTitle="WORKS"
         projects={designProjects}
         onProjectClick={setSelectedProject}
         isSticky={true}
       />
-      {/* <ProjectSection
-        title="INFORMATION DESIGN"
-        outlinedTitle="WORK"
-        projects={infoProjects}
-        onProjectClick={setSelectedProject}
-      /> */}
       <ProjectSection
         title="DEVELOPMENT"
         outlinedTitle="WORK"
         projects={devProjects}
         onProjectClick={setSelectedProject}
-        isSticky={true}
-      />
-      <ProjectSection
-        title="DATA SCIENCE"
-        outlinedTitle="& ANALYTICS"
-        projects={dataProjects}
         isSticky={true}
       />
 

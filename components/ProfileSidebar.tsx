@@ -30,8 +30,8 @@ export const ProfileSidebar: React.FC = () => {
 
         <div className="w-full h-[1px] bg-neutral-100 mb-6"></div>
 
-        <p className="text-neutral-500 text-[15px] leading-relaxed mb-8 px-4 font-medium text-justify">
-          Aspiring HCI Researcher committed to the intersection of human behavior and data-driven product growth. By integrating UI/UX design with Data Science, I specialize in researching most rewarding user experiences, utilizing mixed methods to define the 'what' and the 'why' behind products that resonate at scale.
+        <p className="text-neutral-500 text-sm leading-relaxed mb-8 px-4 font-medium text-justify hyphens-auto tracking-tight">
+          I am fascinated by how AI can be used to build products that genuinely help people. As a Data Science graduate with experience across Analytics, Machine Learning, and Development, I am focused on using these technical skills to craft data-driven products that deliver tangible user value. I have honed my ability to deliver in fast-paced environments by competing in competitions and serving as a Section Leader at Stanford Code in Place. Currently, I am expanding my research by exploring how Multi-Agent Systems can be applied to Social Science.
         </p>
       </div>
 

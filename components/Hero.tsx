@@ -58,7 +58,7 @@ export const Hero: React.FC = () => {
           </div>
           <div>
             <span className="text-[10px] font-black uppercase tracking-[0.3em] text-neutral-400 mb-2 block">Service 01</span>
-            <h4 className="text-2xl md:text-4xl font-extrabold uppercase leading-none tracking-tighter">HCI Research <br />& Analytics</h4>
+            <h4 className="text-2xl md:text-4xl font-extrabold uppercase leading-none tracking-tighter">Data Science <br />& Analytics</h4>
           </div>
         </div>
 
@@ -71,7 +71,7 @@ export const Hero: React.FC = () => {
           </div>
           <div>
             <span className="text-[10px] font-black uppercase tracking-[0.3em] text-black/40 mb-2 block">Service 02</span>
-            <h4 className="text-2xl md:text-4xl font-extrabold uppercase leading-none tracking-tighter">UI/UX <br />Design</h4>
+            <h4 className="text-2xl md:text-4xl font-extrabold uppercase leading-none tracking-tighter">Development <br />{`</>`}</h4>
           </div>
         </div>
       </div>
