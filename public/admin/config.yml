@@ -2,6 +2,7 @@ backend:
   name: github
   repo: lead-with-data/view
   branch: main
+  base_url: https://sveltia-cms-auth.ahmad-bsds.workers.dev
   # For local testing, we can use local_backend: true, but Sveltia handles Github OAuth gracefully
   # Sveltia has a built-in OAuth proxy so no extra server is needed!
 
