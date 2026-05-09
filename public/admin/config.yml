@@ -1,0 +1,45 @@
+backend:
+  name: github
+  repo: lead-with-data/view
+  branch: main
+  # For local testing, we can use local_backend: true, but Sveltia handles Github OAuth gracefully
+  # Sveltia has a built-in OAuth proxy so no extra server is needed!
+
+media_folder: "public/images"
+public_folder: "/images"
+
+# Enable local testing backend if you run 'npx decap-server' (Sveltia supports this too)
+local_backend: true
+
+collections:
+  - name: "projects"
+    label: "Portfolio Projects"
+    folder: "content/projects"
+    create: true
+    format: "json"
+    extension: "json"
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {label: "ID", name: "id", widget: "string", required: false}
+      - {label: "Title", name: "title", widget: "string"}
+      - {
+          label: "Category", 
+          name: "category", 
+          widget: "select", 
+          options: ["Data Science & Analytics", "Design Works", "Development Work"]
+        }
+      - {label: "Type (e.g. Visual Identity)", name: "type", widget: "string"}
+      - {label: "Tags", name: "tags", widget: "list", required: false}
+      - {label: "Main Image", name: "image", widget: "image"}
+      - {
+          label: "Gallery Images", 
+          name: "images", 
+          widget: "list", 
+          field: {name: "image", widget: "image"}, 
+          required: false
+        }
+      - {label: "Description", name: "description", widget: "text", required: false}
+      - {label: "GitHub Link", name: "githubLink", widget: "string", required: false}
+      - {label: "External Link", name: "link", widget: "string", required: false}
+      - {label: "Is Clickable / Open Modal?", name: "clickable", widget: "boolean", default: true, required: false}
+      - {label: "Figma Link", name: "figmaLink", widget: "string", required: false}

@@ -1,0 +1,20 @@
+{
+  "id": "6",
+  "title": "VisionGuard",
+  "category": "Development Work",
+  "type": "Health & Productivity Tool",
+  "tags": [
+    "Health",
+    "Automation",
+    "Analytics"
+  ],
+  "image": "/images/VG-1.png",
+  "images": [
+    "/images/VG-1.png",
+    "/images/VG-2.png",
+    "/images/VG-3.png"
+  ],
+  "githubLink": "https://github.com/lead-with-data/VisionGuard-",
+  "description": "A project which traces your screentime and at every 20 minutes it adds 20 second screen filter to look away for eyes health, also gives you the insights.",
+  "clickable": true
+}

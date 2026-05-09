@@ -1,0 +1,17 @@
+{
+  "id": "lumina-graphics",
+  "title": "AI Graphics designing",
+  "category": "Design Works",
+  "type": "Graphic Design",
+  "tags": [
+    "Gemini",
+    "Graphics",
+    "AI"
+  ],
+  "image": "/images/Lumina_1.png",
+  "images": [
+    "/images/Lumina_1.png"
+  ],
+  "description": "Lumina is hypothetical video generation platform for which i have created two graphics using gemini nano banana.",
+  "clickable": true
+}
