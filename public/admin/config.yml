@@ -2,6 +2,8 @@ backend:
   name: github
   repo: lead-with-data/view
   branch: main
+  auth_type: pkce
+  app_id: Ov23liWhrzZLj5u3Z9de
   # For local testing, we can use local_backend: true, but Sveltia handles Github OAuth gracefully
   # Sveltia has a built-in OAuth proxy so no extra server is needed!
 
