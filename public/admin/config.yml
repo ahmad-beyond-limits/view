@@ -44,3 +44,24 @@ collections:
       - {label: "External Link", name: "link", widget: "string", required: false}
       - {label: "Is Clickable / Open Modal?", name: "clickable", widget: "boolean", default: true, required: false}
       - {label: "Figma Link", name: "figmaLink", widget: "string", required: false}
+  - name: "articles"
+    label: "Thinking Out Loud (Articles)"
+    folder: "content/articles"
+    create: true
+    format: "json"
+    extension: "json"
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {label: "ID", name: "id", widget: "string", required: false}
+      - {label: "Order", name: "order", widget: "number", default: 0, required: false}
+      - {label: "Title", name: "title", widget: "string"}
+      - {
+          label: "Category", 
+          name: "category", 
+          widget: "select", 
+          options: ["Strategy", "Design", "Analytics", "Engineering", "Business"]
+        }
+      - {label: "Excerpt", name: "excerpt", widget: "text"}
+      - {label: "Date", name: "date", widget: "string", hint: "e.g., May 2024"}
+      - {label: "Read Time", name: "readTime", widget: "string", hint: "e.g., 8 min read"}
+      - {label: "External Link", name: "link", widget: "string", required: false}

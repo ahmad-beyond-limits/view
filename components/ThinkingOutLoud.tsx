@@ -10,36 +10,17 @@ interface Article {
   readTime: string;
   category: string;
   link: string;
+  order: number;
 }
 
-const articles: Article[] = [
-  {
-    title: "The Frictionless Interface",
-    excerpt: "Exploring how minimal cognitive load leads to higher user trust and better conversion rates in data-heavy applications.",
-    date: "May 2024",
-    readTime: "6 min read",
-    category: "Design Strategy",
-    link: "#"
-  },
-  {
-    title: "Analytics as a Narrative",
-    excerpt: "Why raw data is just the beginning. Learning to tell a story through dashboards that people actually want to use.",
-    date: "April 2024",
-    readTime: "8 min read",
-    category: "Data Science",
-    link: "#"
-  },
-  {
-    title: "The Aesthetics of Logic",
-    excerpt: "Bridging the gap between engineering precision and visual delight. A deep dive into my personal design philosophy.",
-    date: "March 2024",
-    readTime: "5 min read",
-    category: "Creative Engineering",
-    link: "#"
-  }
-];
-
 export const ThinkingOutLoud: React.FC = () => {
+  // Load all JSON articles dynamically
+  const articleModules = import.meta.glob('../content/articles/*.json', { eager: true });
+  const allArticles = Object.values(articleModules).map((m: any) => m.default || m);
+  
+  // Sort articles by order
+  const articles = [...allArticles].sort((a, b) => (a.order || 0) - (b.order || 0));
+
   return (
     <section id="thoughts" className="py-24">
       <div className="flex flex-col">
