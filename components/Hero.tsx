@@ -24,7 +24,7 @@ export const Hero: React.FC = () => {
             
             {/* Typography */}
             <div className="flex-1 w-full relative z-20">
-              <h1 className="text-4xl md:text-6xl lg:text-8xl font-['Playfair_Display'] text-white leading-[1.1] md:leading-[1.1] tracking-tight max-w-5xl">
+              <h1 className="text-3xl md:text-5xl lg:text-7xl font-['Playfair_Display'] text-white leading-[1.2] md:leading-[1.2] tracking-tight max-w-5xl">
                 Your data <span className="italic text-white/50">can't</span> grow your business. <br />
                 But the <span className="italic">right</span> decisions can — and it starts with asking better questions.
               </h1>
