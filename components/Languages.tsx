@@ -1,5 +1,6 @@
 import React from 'react';
 import { Languages as LanguageIcon } from 'lucide-react';
+import { SectionHeader } from './SectionHeader';
 
 export const Languages: React.FC = () => {
     const languages = [
@@ -16,13 +17,13 @@ export const Languages: React.FC = () => {
     ];
 
     return (
-        <div>
-            <div className="flex items-end justify-between mb-16">
-                <h2 className="text-5xl md:text-7xl lg:text-9xl font-black tracking-tighter uppercase leading-[0.85] text-theme-text font-['Playfair_Display']">
-                    SPOKEN <br />
-                    <span className="text-outline">LANGUAGES</span>
-                </h2>
-            </div>
+    <div>
+      <SectionHeader 
+        overline="COMMUNICATION"
+        titlePart1="Bridging cultures through"
+        titlePart2="articulate speech."
+        description="Proficiency in multiple languages allows me to collaborate effectively across global teams and diverse contexts."
+      />
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {languages.map((lang) => (

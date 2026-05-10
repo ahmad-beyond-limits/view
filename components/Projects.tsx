@@ -2,33 +2,33 @@ import React, { useState } from 'react';
 import { ArrowUpRight } from 'lucide-react';
 import { ProjectModal } from './ProjectModal';
 import { motion } from 'framer-motion';
+import { SectionHeader } from './SectionHeader';
 
 export const Projects: React.FC = () => {
   const [selectedProject, setSelectedProject] = useState<any>(null);
 
-  // Load all JSON projects dynamically from Decap CMS output
+  // Load all JSON projects dynamically
   const projectModules = import.meta.glob('../content/projects/*.json', { eager: true });
   const allProjects = Object.values(projectModules).map((m: any) => m.default || m);
 
-  const designProjects = allProjects.filter((p: any) => p.category === 'Design Works');
-  const devProjects = allProjects.filter((p: any) => p.category === 'Development Work');
-  const dataProjects = allProjects.filter((p: any) => p.category === 'Data Science & Analytics');
+  // Sort projects if needed, or just take them all
+  const sortedProjects = [...allProjects].sort((a, b) => (a.order || 0) - (b.order || 0));
 
-  const ProjectSection =  ({ title, outlinedTitle, projects, onProjectClick }: { title: string, outlinedTitle?: string, projects: any[], onProjectClick?: (p: any) => void }) => (
+  return (
     <div className="mb-32">
-      <div className="flex items-end justify-between mb-16">
-        <h2 className="text-4xl md:text-6xl lg:text-8xl font-black tracking-tighter uppercase leading-[0.85]">
-          {title} {outlinedTitle && <br />}
-          {outlinedTitle && <span className="text-outline">{outlinedTitle}</span>}
-        </h2>
-      </div>
+      <SectionHeader 
+        overline="SELECTED WORK"
+        titlePart1="Data doesn't speak."
+        titlePart2="I make it articulate."
+        description="I build technical systems that transform raw numbers into clear, readable stories for decision-makers."
+      />
 
       <div className="w-full flex flex-col border-t border-theme-border">
-        {projects.map((p, index) => {
-          const isClickable = !!onProjectClick && p.clickable !== false;
+        {sortedProjects.map((p, index) => {
+          const isClickable = p.clickable !== false;
           const Component = isClickable ? 'div' : (p.clickable === false ? 'div' : 'a');
           const props = isClickable
-            ? { onClick: () => onProjectClick(p) }
+            ? { onClick: () => setSelectedProject(p) }
             : (p.clickable === false ? {} : { href: p.link || '#', target: p.link ? "_blank" : undefined, rel: p.link ? "noopener noreferrer" : undefined });
 
           return (
@@ -78,28 +78,6 @@ export const Projects: React.FC = () => {
           );
         })}
       </div>
-    </div >
-  );
-
-  return (
-    <div>
-      <ProjectSection
-        title="DATA SCIENCE"
-        outlinedTitle="& ANALYTICS"
-        projects={dataProjects}
-      />
-      <ProjectSection
-        title="DESIGN"
-        outlinedTitle="WORKS"
-        projects={designProjects}
-        onProjectClick={setSelectedProject}
-      />
-      <ProjectSection
-        title="DEVELOPMENT"
-        outlinedTitle="WORK"
-        projects={devProjects}
-        onProjectClick={setSelectedProject}
-      />
 
       <ProjectModal project={selectedProject} onClose={() => setSelectedProject(null)} />
     </div>

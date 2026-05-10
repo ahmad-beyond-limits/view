@@ -1,6 +1,7 @@
 import React from 'react';
 import { MoveUpRight } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { SectionHeader } from './SectionHeader';
 
 export const ExperienceSection: React.FC = () => {
   const experiences = [
@@ -37,9 +38,12 @@ export const ExperienceSection: React.FC = () => {
 
   return (
     <div>
-      <h2 className="text-6xl lg:text-8xl font-black tracking-tighter uppercase mb-12">
-        EXPERIENCE
-      </h2>
+      <SectionHeader 
+        overline="THE JOURNEY"
+        titlePart1="Building the pipes that"
+        titlePart2="carry the truth."
+        description="A timeline of my work in engineering and mentorship, focused on making data reliable and accessible."
+      />
 
       <div className="w-full flex flex-col border-t border-theme-border">
         {experiences.map((exp, index) => (

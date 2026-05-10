@@ -35,13 +35,14 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
 
   const navItems = [
     { id: 'home', icon: Home, label: 'Home' },
-    { id: 'projects', icon: FolderClosed, label: 'Projects' },
-    { id: 'experience', icon: Briefcase, label: 'Experience' },
-    { id: 'certifications', icon: Award, label: 'Certifications' },
-    { id: 'tools', icon: Box, label: 'Tools' },
-    { id: 'education', icon: GraduationCap, label: 'Education' },
-    { id: 'achievements', icon: Trophy, label: 'Extra' },
-    { id: 'languages', icon: LanguageIcon, label: 'Languages' },
+    { id: 'work', icon: FolderClosed, label: 'Work' },
+    { id: 'experience', icon: Briefcase, label: 'Journey' },
+    { id: 'research', icon: Box, label: 'Curiosity' },
+    { id: 'certifications', icon: Award, label: 'Validation' },
+    { id: 'tools', icon: Box, label: 'Craft' },
+    { id: 'education', icon: GraduationCap, label: 'Foundations' },
+    { id: 'achievements', icon: Trophy, label: 'Recognition' },
+    { id: 'languages', icon: LanguageIcon, label: 'Communication' },
     { id: 'contact', icon: Mail, label: 'Contact' },
   ];
 
@@ -94,21 +95,21 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
         )}
       </AnimatePresence>
 
-      <div className="hidden md:flex fixed top-8 left-1/2 -translate-x-1/2 lg:sticky lg:top-8 lg:translate-x-0 z-50 w-fit mx-auto gap-4">
-        <nav className="glass rounded-full p-2 flex items-center gap-1.5 shadow-2xl border border-theme-border">
+      <div className="hidden md:flex fixed top-8 left-1/2 -translate-x-1/2 z-50 w-fit mx-auto gap-4">
+        <nav className="rounded-full p-2 flex items-center gap-1.5 shadow-2xl border border-black/5 bg-white">
           {navItems.map((item) => {
             const isActive = activeSection === item.id;
             return (
               <a
                 key={item.id}
                 href={`#${item.id}`}
-                className={`relative p-3 rounded-full transition-all duration-500 group overflow-hidden ${isActive ? 'text-theme-bg' : 'text-theme-muted hover:text-theme-text'
+                className={`relative p-3 rounded-full transition-all duration-500 group overflow-hidden ${isActive ? 'text-white' : 'text-gray-400 hover:text-black'
                   }`}
                 title={item.label}
               >
                 {/* Background Glow for Active State */}
                 {isActive && (
-                  <div className="absolute inset-0 bg-theme-text transition-all duration-500" />
+                  <div className="absolute inset-0 bg-[#0812F9] transition-all duration-500" />
                 )}
 
                 {/* Subtle Hover Ring */}
@@ -134,7 +135,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
         {/* Theme Toggle Button */}
         <button
           onClick={toggleTheme}
-          className="glass rounded-full p-3 flex items-center justify-center shadow-2xl border border-theme-border text-theme-muted hover:text-theme-text transition-colors"
+          className="rounded-full p-3 flex items-center justify-center shadow-2xl border border-black/5 text-gray-400 hover:text-black transition-colors bg-white"
           title={isDark ? "Switch to Light Mode" : "Switch to Dark Mode"}
         >
           {isDark ? <Sun size={18} /> : <Moon size={18} />}

@@ -1,14 +1,16 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { SectionHeader } from './SectionHeader';
 
 export const Education: React.FC = () => {
     return (
-        <div>
-            <div className="flex items-end justify-between mb-16">
-                <h2 className="text-5xl md:text-7xl lg:text-9xl font-black tracking-tighter uppercase leading-[0.85]">
-                    EDUCATION
-                </h2>
-            </div>
+    <div>
+      <SectionHeader 
+        overline="FOUNDATIONS"
+        titlePart1="Rooted in science,"
+        titlePart2="driven by intent."
+        description="My academic path in Data Science, providing the mathematical foundation for my engineering work."
+      />
 
             <div className="w-full flex flex-col border-t border-theme-border">
                 <motion.div

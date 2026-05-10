@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { ProfileSidebar } from './components/ProfileSidebar';
 import { Navbar } from './components/Navbar';
+import { Hero } from './components/Hero';
 import { Projects } from './components/Projects';
 import { ExperienceSection } from './components/ExperienceSection';
 import { ToolsGrid } from './components/ToolsGrid';
@@ -11,13 +11,14 @@ import { Certifications } from './components/Certifications';
 import { Achievements } from './components/Achievements';
 import { Languages } from './components/Languages';
 import { ContactForm } from './components/ContactForm';
+import { ScrollSummary } from './components/ScrollSummary';
 
 const App: React.FC = () => {
-  const [activeSection, setActiveSection] = useState('projects');
+  const [activeSection, setActiveSection] = useState('home');
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['projects', 'experience', 'research', 'certifications', 'tools', 'education', 'achievements', 'languages', 'thoughts', 'contact'];
+      const sections = ['home', 'work', 'experience', 'research', 'certifications', 'tools', 'education', 'achievements', 'languages', 'thoughts', 'contact'];
       const scrollPosition = window.scrollY + 150; // Slightly larger offset for smoother activation
 
       for (const section of sections) {
@@ -38,55 +39,53 @@ const App: React.FC = () => {
   }, []);
 
   return (
-    <div className="min-h-screen flex flex-col lg:flex-row max-w-[1400px] mx-auto px-4 lg:px-12 py-8 gap-8 lg:gap-16 w-full overflow-hidden lg:overflow-visible">
-      {/* Fixed Sidebar for desktop, Static for mobile */}
-      <aside className="w-full lg:w-[320px] lg:sticky lg:top-8 h-fit z-40">
-        <ProfileSidebar />
-      </aside>
+    <div className="w-full flex flex-col min-h-screen">
+      <Navbar activeSection={activeSection} />
 
-      {/* Main Content Area */}
-      <main className="flex-1 w-full space-y-32 pb-24 relative">
-        <Navbar activeSection={activeSection} />
-
-        <section id="projects" className="scroll-mt-32 pt-20">
-          <Projects />
+      <main className="flex-1 w-full flex flex-col">
+        <section id="home">
+          <Hero />
         </section>
 
-        <section id="experience" className="scroll-mt-32">
-          <ExperienceSection />
-        </section>
+        <ScrollSummary />
 
-        <section id="research" className="scroll-mt-32">
-          <Research />
-        </section>
+        {/* Constrain the rest of the content */}
+        <div className="w-full max-w-[1400px] mx-auto px-4 lg:px-12 space-y-32 py-32">
+          <section id="work" className="scroll-mt-32">
+            <Projects />
+          </section>
 
-        <section id="certifications" className="scroll-mt-32">
-          <Certifications />
-        </section>
+          <section id="experience" className="scroll-mt-32">
+            <ExperienceSection />
+          </section>
 
-        <section id="tools" className="scroll-mt-32">
-          <ToolsGrid />
-        </section>
+          <section id="research" className="scroll-mt-32">
+            <Research />
+          </section>
 
-        <section id="education" className="scroll-mt-32">
-          <Education />
-        </section>
+          <section id="certifications" className="scroll-mt-32">
+            <Certifications />
+          </section>
 
-        <section id="achievements" className="scroll-mt-32">
-          <Achievements />
-        </section>
+          <section id="tools" className="scroll-mt-32">
+            <ToolsGrid />
+          </section>
 
-        <section id="languages" className="scroll-mt-32">
-          <Languages />
-        </section>
+          <section id="education" className="scroll-mt-32">
+            <Education />
+          </section>
 
-        {/* <section id="thoughts" className="scroll-mt-32">
-          <DesignThoughts />
-        </section> */}
+          <section id="achievements" className="scroll-mt-32">
+            <Achievements />
+          </section>
 
-        <section id="contact" className="scroll-mt-32">
-          <ContactForm />
-        </section>
+          <section id="languages" className="scroll-mt-32">
+            <Languages />
+          </section>
+
+        </div>
+
+        <ContactForm />
       </main>
     </div>
   );

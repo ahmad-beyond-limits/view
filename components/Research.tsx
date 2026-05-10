@@ -1,6 +1,7 @@
 import React from 'react';
 import { ArrowUpRight } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { SectionHeader } from './SectionHeader';
 
 export const Research: React.FC = () => {
     const researches = [
@@ -13,12 +14,13 @@ export const Research: React.FC = () => {
     ];
 
     return (
-        <div>
-            <div className="flex items-end justify-between mb-16">
-                <h2 className="text-5xl md:text-7xl lg:text-9xl font-black tracking-tighter uppercase leading-[0.85]">
-                    RESEARCH
-                </h2>
-            </div>
+    <div>
+      <SectionHeader 
+        overline="CURIOSITY"
+        titlePart1="Where intelligence meets"
+        titlePart2="human behavior."
+        description="I study how digital intelligence can be modeled to better understand and support the way we interact as humans."
+      />
 
             <div className="w-full flex flex-col border-t border-theme-border">
                 {researches.map((item, index) => (

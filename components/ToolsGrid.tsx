@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrainCircuit, Bot, PieChart, BarChart3, Code2, Users, Palette, Cloud, Terminal } from 'lucide-react';
+import { SectionHeader } from './SectionHeader';
 
 export const ToolsGrid: React.FC = () => {
   const stack = [
@@ -16,10 +17,12 @@ export const ToolsGrid: React.FC = () => {
 
   return (
     <div>
-      <h2 className="text-7xl lg:text-9xl font-black tracking-tighter uppercase mb-16 leading-[0.85] text-theme-text">
-        STACK & <br />
-        <span className="text-outline">SKILLS</span>
-      </h2>
+      <SectionHeader 
+        overline="THE CRAFT"
+        titlePart1="The tools I use to"
+        titlePart2="manifest clarity."
+        description="The specific technologies I rely on to process, clean, and visualize information."
+      />
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-theme-border-faint border border-theme-border-faint rounded-[3rem] overflow-hidden">
         {stack.map((item, i) => {

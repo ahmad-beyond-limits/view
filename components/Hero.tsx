@@ -1,102 +1,79 @@
 import React from 'react';
-import { ArrowDownRight, Sparkles, PenTool, Search } from 'lucide-react';
-import { motion } from 'framer-motion';
+import profileImage from '../assets/image.png';
 
 export const Hero: React.FC = () => {
   return (
-    <div className="pt-20 lg:pt-32 relative">
-      {/* Background Glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] md:w-[800px] md:h-[800px] bg-theme-accent/10 rounded-full blur-[120px] pointer-events-none z-0"></div>
+    <div className="relative min-h-screen w-full bg-[#0812F9] overflow-hidden flex flex-col justify-center font-['Plus_Jakarta_Sans']">
+      {/* Cloud / Gradient Effects */}
+      <div className="absolute top-0 left-1/4 w-[800px] h-[800px] bg-white opacity-5 rounded-full blur-[150px] pointer-events-none mix-blend-screen"></div>
+      <div className="absolute bottom-[-20%] right-[-10%] w-[1000px] h-[1000px] bg-white opacity-10 rounded-full blur-[200px] pointer-events-none mix-blend-screen"></div>
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-blue-300 opacity-20 rounded-full blur-[120px] pointer-events-none mix-blend-screen"></div>
 
-      <div className="relative mb-32 overflow-hidden z-10">
-        {/* Background Scrolling Marquee */}
-        <div className="flex whitespace-nowrap overflow-hidden select-none pointer-events-none absolute -top-10 -left-10 w-[150%] opacity-40">
-          <div className="animate-marquee flex gap-20 py-4">
-            <span className="text-8xl md:text-[220px] font-['Playfair_Display'] italic uppercase text-theme-faint">Researching</span>
-            <span className="text-8xl md:text-[220px] font-['Playfair_Display'] italic uppercase text-theme-faint">Experiences</span>
-            <span className="text-8xl md:text-[220px] font-['Playfair_Display'] italic uppercase text-theme-faint">Researching</span>
-            <span className="text-8xl md:text-[220px] font-['Playfair_Display'] italic uppercase text-theme-faint">Experiences</span>
+      <div className="relative z-10 w-full max-w-[1400px] mx-auto px-6 md:px-12 pt-32 pb-8 flex flex-col min-h-screen">
+        
+        {/* Main Content Area */}
+        <div className="flex-1 flex flex-col justify-center mt-12 md:mt-20">
+          {/* Overline */}
+          <div className="mb-12">
+            <span className="text-white/80 text-[10px] md:text-xs font-bold tracking-[0.3em] uppercase">
+              Analytics Engineer
+            </span>
+          </div>
+
+          <div className="flex flex-col xl:flex-row justify-between items-start xl:items-center gap-16 xl:gap-8">
+            
+            {/* Typography */}
+            <div className="flex-1 w-full relative z-20">
+              <h1 className="text-4xl md:text-6xl lg:text-8xl font-['Playfair_Display'] text-white leading-[1.1] md:leading-[1.1] tracking-tight max-w-5xl">
+                Your data <span className="italic text-white/50">can't</span> grow your business. <br />
+                But the <span className="italic">right</span> decisions can — and it starts with asking better questions.
+              </h1>
+
+              <div className="mt-16 md:mt-24 flex flex-col md:flex-row items-start md:items-end justify-between border-t border-white/20 pt-8 max-w-4xl relative z-20">
+                <p className="text-white/90 text-sm md:text-base max-w-[400px] font-medium leading-relaxed mb-8 md:mb-0">
+                  A specialized practice combining analytics and intentional aesthetics to build user trust, reduce friction, and drive instinctive action.
+                </p>
+              </div>
+            </div>
+
+            {/* Profile Image Integration */}
+            <div className="relative w-full max-w-[400px] xl:max-w-[450px] shrink-0 group mx-auto xl:mx-0 z-10 xl:-mt-12">
+              <div className="relative aspect-[3/4] overflow-hidden rounded-[2.5rem] border border-white/20 bg-[#f5f5f5] shadow-2xl">
+                <img 
+                  src={profileImage} 
+                  alt="Muhammad Ahmad" 
+                  className="w-full h-full object-cover grayscale brightness-110 group-hover:scale-105 transition-transform duration-700"
+                />
+                {/* Abstract shape overlays to replicate the previous appealing styling */}
+                <div className="absolute -bottom-8 -right-8 w-40 h-40 bg-[#FF5C00] rounded-full blur-3xl opacity-40 pointer-events-none"></div>
+                <div className="absolute top-4 left-4 w-32 h-32 bg-blue-500 rounded-full blur-3xl opacity-30 pointer-events-none"></div>
+              </div>
+              
+              {/* Explore Circular Button */}
+              <a href="#projects" className="absolute -bottom-8 -left-8 md:-left-12 w-32 h-32 md:w-40 md:h-40 rounded-full border border-white/30 bg-[#0812F9]/80 backdrop-blur-xl flex items-center justify-center group-hover:scale-110 transition-transform cursor-pointer shadow-2xl z-30">
+                <div className="absolute w-[80%] h-[80%] rounded-full border border-dashed border-white/40 flex items-center justify-center animate-[spin_10s_linear_infinite]"></div>
+                <span className="text-white text-[10px] md:text-xs font-bold tracking-[0.2em] relative z-10">EXPLORE</span>
+              </a>
+            </div>
+
           </div>
         </div>
 
-        <div className="relative z-10 pt-10 px-4 md:px-0">
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            className="inline-flex items-center gap-3 px-6 py-3 bg-theme-bg/50 backdrop-blur-md border border-theme-border rounded-full mb-12 shadow-sm"
-          >
-            <Sparkles size={16} className="text-theme-accent animate-pulse" />
-            <span className="text-[11px] font-bold uppercase tracking-[0.25em] text-theme-text">Based in Punjab, Pakistan</span>
-          </motion.div>
-
-          <h2 className="text-6xl md:text-8xl lg:text-[150px] font-black leading-[0.9] tracking-tighter uppercase mb-16 flex flex-col items-start gap-0">
-            <motion.span 
-              initial={{ opacity: 0, y: 40 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-              className="text-theme-text font-['Playfair_Display']"
-            >
-              PRODUCT
-            </motion.span>
-            <motion.span 
-              initial={{ opacity: 0, y: 40 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-              className="font-['Playfair_Display'] italic"
-              style={{ WebkitTextStroke: '2px var(--text-color)', color: 'transparent' }}
-            >
-              RESEARCHER
-            </motion.span>
-          </h2>
-
-          <motion.div 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1, delay: 0.6 }}
-            className="flex flex-col md:flex-row gap-12 md:items-end justify-between"
-          >
-            <div className="flex-1"></div>
-          </motion.div>
+        {/* Footer info inside Hero */}
+        <div className="mt-auto pt-20 flex flex-col md:flex-row justify-between items-start md:items-end text-white/60 text-[10px] font-bold tracking-[0.3em] uppercase gap-6">
+          <div className="flex flex-col gap-1.5">
+            <span>Lahore, Pakistan</span>
+          </div>
+          <div className="flex gap-8 items-center">
+            <a href="https://github.com/lead-with-data" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
+              <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+            </a>
+            <a href="https://www.linkedin.com/in/ahmad-bsds/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
+              <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.761 0 5-2.239 5-5v-14c0-2.761-2.239-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+            </a>
+          </div>
         </div>
-      </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 relative z-10">
-        <motion.div 
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-          className="bg-theme-bg border border-theme-border group rounded-[3rem] p-10 flex flex-col justify-between aspect-square md:aspect-auto md:h-[400px] cursor-pointer hover:bg-theme-border-faint transition-all text-theme-text shadow-sm hover:shadow-xl"
-        >
-          <div className="flex justify-between items-start">
-            <div className="p-4 bg-theme-border-faint rounded-2xl group-hover:scale-110 group-hover:bg-theme-accent/10 transition-all">
-              <Search size={32} className="text-theme-text group-hover:text-theme-accent transition-colors" />
-            </div>
-            <ArrowDownRight size={24} className="text-theme-muted group-hover:text-theme-text transition-colors" />
-          </div>
-          <div>
-            <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-theme-muted mb-3 block">Service 01</span>
-            <h4 className="text-3xl md:text-4xl font-extrabold uppercase leading-[1.1] tracking-tight font-['Playfair_Display']">Data Science <br />& Analytics</h4>
-          </div>
-        </motion.div>
-
-        <motion.div 
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="bg-theme-accent border border-theme-accent group rounded-[3rem] p-10 flex flex-col justify-between aspect-square md:aspect-auto md:h-[400px] cursor-pointer hover:-translate-y-2 transition-all text-theme-bg shadow-2xl shadow-theme-accent/20"
-        >
-          <div className="flex justify-between items-start">
-            <div className="p-4 bg-theme-bg/20 rounded-2xl group-hover:bg-theme-bg/30 transition-all">
-              <PenTool size={32} />
-            </div>
-            <ArrowDownRight size={24} className="opacity-60 group-hover:opacity-100 transition-opacity" />
-          </div>
-          <div>
-            <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-theme-bg/60 mb-3 block">Service 02</span>
-            <h4 className="text-3xl md:text-4xl font-extrabold uppercase leading-[1.1] tracking-tight font-['Playfair_Display'] text-theme-bg">Development <br />{`</>`}</h4>
-          </div>
-        </motion.div>
       </div>
     </div>
   );
