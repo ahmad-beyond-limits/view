@@ -11,6 +11,44 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
 
+    <!-- Tailwind Play CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script type="importmap">
+    {
+      "imports": {
+        "react": "https://esm.sh/react@18.2.0",
+        "react-dom": "https://esm.sh/react-dom@18.2.0",
+        "react-dom/client": "https://esm.sh/react-dom@18.2.0/client",
+        "framer-motion": "https://esm.sh/framer-motion@11.0.8",
+        "lucide-react": "https://esm.sh/lucide-react@0.344.0"
+      }
+    }
+    </script>
+
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              theme: {
+                bg: 'var(--bg-color)',
+                text: 'var(--text-color)',
+                muted: 'var(--text-muted)',
+                faint: 'var(--text-faint)',
+                'faint-hover': 'var(--text-faint-hover)',
+                border: 'var(--border-color)',
+                'border-faint': 'var(--border-faint)',
+                accent: 'var(--accent)',
+                'accent-soft': 'var(--accent-soft)'
+              }
+            }
+          }
+        }
+      }
+    </script>
+
     <style>
         :root {
             --bg-color: #FFFFFF;
