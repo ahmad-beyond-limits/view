@@ -46,7 +46,7 @@ export const ScrollSummary: React.FC = () => {
   const windowSize = (7 / words.length) / 2; 
 
   return (
-    <section ref={containerRef} className="relative min-h-[450vh] bg-white py-64">
+    <section ref={containerRef} className="relative min-h-[450vh] bg-white mt-[100vh] md:mt-0 py-32 md:py-64">
       <div className="sticky top-0 h-screen w-full flex items-center justify-center px-6 md:px-12">
         <div className="max-w-6xl mx-auto">
           <p className="text-2xl md:text-4xl lg:text-5xl font-medium leading-[2.2] text-center tracking-tight flex flex-wrap justify-center">
