@@ -1,8 +1,6 @@
-
 import React, { useState, useEffect } from 'react';
 import { ProfileSidebar } from './components/ProfileSidebar';
 import { Navbar } from './components/Navbar';
-import { Hero } from './components/Hero';
 import { Projects } from './components/Projects';
 import { ExperienceSection } from './components/ExperienceSection';
 import { ToolsGrid } from './components/ToolsGrid';
@@ -15,11 +13,11 @@ import { Languages } from './components/Languages';
 import { ContactForm } from './components/ContactForm';
 
 const App: React.FC = () => {
-  const [activeSection, setActiveSection] = useState('home');
+  const [activeSection, setActiveSection] = useState('projects');
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['home', 'projects', 'experience', 'research', 'certifications', 'tools', 'education', 'achievements', 'languages', 'thoughts', 'contact'];
+      const sections = ['projects', 'experience', 'research', 'certifications', 'tools', 'education', 'achievements', 'languages', 'thoughts', 'contact'];
       const scrollPosition = window.scrollY + 150; // Slightly larger offset for smoother activation
 
       for (const section of sections) {
@@ -50,11 +48,7 @@ const App: React.FC = () => {
       <main className="flex-1 w-full space-y-32 pb-24 relative">
         <Navbar activeSection={activeSection} />
 
-        <section id="home" className="scroll-mt-32">
-          <Hero />
-        </section>
-
-        <section id="projects" className="scroll-mt-32">
+        <section id="projects" className="scroll-mt-32 pt-20">
           <Projects />
         </section>
 

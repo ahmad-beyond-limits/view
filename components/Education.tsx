@@ -1,6 +1,5 @@
-
 import React from 'react';
-import { GraduationCap } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 export const Education: React.FC = () => {
     return (
@@ -11,42 +10,53 @@ export const Education: React.FC = () => {
                 </h2>
             </div>
 
-            <div className="group relative overflow-hidden rounded-[2.5rem] bg-[#111] hover:bg-[#151515] transition-all cursor-pointer p-8 md:p-12 border border-white/5 hover:border-white/10">
-                <div className="flex flex-col md:flex-row gap-8 items-start">
-                    <div className="w-16 h-16 rounded-full bg-white/5 flex items-center justify-center text-[#FF5C00] group-hover:scale-110 transition-transform shrink-0">
-                        <GraduationCap size={32} />
-                    </div>
-
-                    <div className="flex-1">
-                        <div className="flex flex-col md:flex-row md:items-center justify-between mb-2">
-                            <h3 className="text-3xl md:text-4xl font-black uppercase tracking-tighter group-hover:text-[#FF5C00] transition-colors">
+            <div className="w-full flex flex-col border-t border-theme-border">
+                <motion.div
+                    initial={{ opacity: 0, y: 100, filter: "blur(20px)", scale: 0.9 }}
+                    whileInView={{ opacity: 1, y: 0, filter: "blur(0px)", scale: 1 }}
+                    transition={{ duration: 1.4, ease: [0.16, 1, 0.3, 1] }}
+                    viewport={{ once: true, margin: "-100px" }}
+                    className="w-full"
+                >
+                    <div className="group relative flex flex-col md:flex-row w-full border-b border-theme-border-faint py-16 md:py-24 transition-all items-start">
+                        <div className="w-full md:w-1/3 flex-shrink-0 mb-8 md:mb-0 flex items-center md:items-start">
+                            <span className="font-['Playfair_Display'] text-[120px] md:text-[220px] leading-none text-theme-faint group-hover:text-theme-faint-hover transition-colors duration-500 select-none">
+                                01
+                            </span>
+                        </div>
+                        
+                        <div className="w-full md:w-2/3 flex flex-col justify-center relative h-full">
+                            <div className="mb-6 flex flex-wrap gap-2">
+                                <span className="text-[10px] font-bold uppercase tracking-[0.2em] px-4 py-2 bg-theme-accent-soft text-theme-accent rounded-full border border-theme-border">
+                                    Oct 2021 - July 2025
+                                </span>
+                            </div>
+                            
+                            <h3 className="font-['Playfair_Display'] text-4xl md:text-5xl lg:text-7xl text-theme-text group-hover:italic transition-all duration-500 mb-6 max-w-4xl pr-8">
                                 Government College University
                             </h3>
-                            <span className="text-neutral-500 font-bold uppercase tracking-widest text-sm md:text-base mt-2 md:mt-0">Oct 2021 - July 2025</span>
-                        </div>
+                            
+                            <p className="text-xl md:text-2xl text-theme-muted group-hover:text-theme-text transition-colors duration-500 max-w-2xl font-medium mb-8">
+                                Bachelors of Science in Data Science<br/>
+                                <span className="text-lg opacity-80">Faisalabad, Pakistan</span>
+                            </p>
 
-                        <p className="text-xl md:text-2xl text-white font-bold mb-1">
-                            Faisalabad, Pakistan
-                        </p>
-                        <p className="text-lg text-white/60 font-medium mb-6">
-                            Bachelors of Science in Data Science
-                        </p>
+                            <div className="space-y-6 max-w-2xl">
+                                <div>
+                                    <span className="text-theme-accent font-bold uppercase tracking-widest text-xs mb-2 block">Concentrations</span>
+                                    <p className="text-theme-text opacity-90">Data Science and Analytics</p>
+                                </div>
 
-                        <div className="space-y-4">
-                            <div>
-                                <span className="text-[#FF5C00] font-bold uppercase tracking-widest text-xs mb-2 block">Concentrations</span>
-                                <p className="text-neutral-300">Data Science and Analytics</p>
-                            </div>
-
-                            <div>
-                                <span className="text-[#FF5C00] font-bold uppercase tracking-widest text-xs mb-2 block">Related Coursework</span>
-                                <p className="text-neutral-400 leading-relaxed text-sm">
-                                    Computing in Python, Descriptive and Inferential Statistics in R, Machine Learning, Data Analysis, Mathematics, Artificial Intelligence, Data Visualization, Data Structures, Databases, Data warehousing and BI, Data Analysis using SQL.
-                                </p>
+                                <div>
+                                    <span className="text-theme-accent font-bold uppercase tracking-widest text-xs mb-2 block">Related Coursework</span>
+                                    <p className="text-theme-muted leading-relaxed text-sm">
+                                        Computing in Python, Descriptive and Inferential Statistics in R, Machine Learning, Data Analysis, Mathematics, Artificial Intelligence, Data Visualization, Data Structures, Databases, Data warehousing and BI, Data Analysis using SQL.
+                                    </p>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                </motion.div>
             </div>
         </div>
     );
