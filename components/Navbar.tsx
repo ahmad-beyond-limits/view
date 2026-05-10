@@ -49,11 +49,10 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
 
   return (
     <>
-      {/* Branded Name - Fixed Top Left */}
-      <div className="fixed top-8 left-6 md:left-12 z-50 select-none pointer-events-none">
-        <div className="flex items-center gap-3">
-          <div className="w-1.5 h-1.5 rounded-full bg-theme-accent" />
-          <span className="text-theme-text font-bold tracking-[0.4em] uppercase text-[10px] md:text-xs drop-shadow-sm">
+      {/* Branded Name - Aligned with Navbar Style */}
+      <div className="fixed top-8 left-6 md:left-12 z-50 select-none">
+        <div className="h-12 px-6 rounded-full bg-white shadow-2xl border border-black/5 flex items-center justify-center">
+          <span className="text-[#0812F9] font-black tracking-[0.2em] uppercase text-[10px] md:text-xs">
             MUHAMMAD AHMAD
           </span>
         </div>
