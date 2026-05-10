@@ -50,9 +50,10 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
   return (
     <>
       {/* Branded Name - Fixed Top Left */}
-      <div className="fixed top-8 left-6 md:left-12 z-50">
-        <div className="px-5 py-2 rounded-full bg-theme-bg/10 backdrop-blur-md border border-theme-border/20 shadow-sm">
-          <span className="text-theme-text font-black tracking-[0.3em] uppercase text-[10px] md:text-xs select-none">
+      <div className="fixed top-8 left-6 md:left-12 z-50 select-none pointer-events-none">
+        <div className="flex items-center gap-3">
+          <div className="w-1.5 h-1.5 rounded-full bg-theme-accent" />
+          <span className="text-theme-text font-bold tracking-[0.4em] uppercase text-[10px] md:text-xs drop-shadow-sm">
             MUHAMMAD AHMAD
           </span>
         </div>
