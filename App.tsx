@@ -12,7 +12,6 @@ import { Achievements } from './components/Achievements';
 import { Languages } from './components/Languages';
 import { ContactForm } from './components/ContactForm';
 import { ScrollSummary } from './components/ScrollSummary';
-import { ThinkingOutLoud } from './components/ThinkingOutLoud';
 
 const App: React.FC = () => {
   const [activeSection, setActiveSection] = useState('home');
