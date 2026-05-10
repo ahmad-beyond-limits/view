@@ -49,6 +49,13 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
 
   return (
     <>
+      {/* Branded Name - Fixed Top Left */}
+      <div className="fixed top-10 left-6 md:left-12 z-50">
+        <span className="text-theme-text font-black tracking-[0.3em] uppercase text-xs md:text-sm select-none">
+          MUHAMMAD AHMAD
+        </span>
+      </div>
+
       <div className="fixed top-8 right-10 z-50 md:hidden flex gap-4">
         <button
           onClick={toggleTheme}
