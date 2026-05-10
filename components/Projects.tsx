@@ -61,11 +61,11 @@ export const Projects: React.FC = () => {
                      ))}
                   </div>
                   
-                  <h3 className="font-['Playfair_Display'] text-4xl md:text-5xl lg:text-7xl text-theme-text group-hover:italic transition-all duration-500 mb-6 max-w-4xl pr-8">
+                  <h3 className="font-['Playfair_Display'] text-2xl md:text-3xl lg:text-5xl text-theme-text group-hover:italic transition-all duration-500 mb-4 max-w-4xl pr-8">
                     {p.title}
                   </h3>
                   
-                  <p className="text-xl md:text-2xl text-theme-muted group-hover:text-theme-text transition-colors duration-500 max-w-2xl font-medium">
+                  <p className="text-base md:text-lg text-theme-muted group-hover:text-theme-text transition-colors duration-500 max-w-2xl font-medium">
                     {p.type}
                   </p>
 

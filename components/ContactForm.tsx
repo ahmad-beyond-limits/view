@@ -135,7 +135,7 @@ export const ContactForm: React.FC = () => {
   };
 
   return (
-    <div ref={containerRef} className="h-[400vh] w-full bg-[#0812F9] relative">
+    <div ref={containerRef} className="h-[800vh] w-full bg-[#0812F9] relative">
       <div className="sticky top-0 h-screen w-full flex flex-col items-center justify-center overflow-hidden">
         
         {/* STEP 1: The Reveal */}
