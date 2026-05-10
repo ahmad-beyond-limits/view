@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Home, FolderClosed, Briefcase, Box, Mail, Award, Trophy, Languages as LanguageIcon, GraduationCap, Menu, X, Sun, Moon } from 'lucide-react';
+import { Home, FolderClosed, Briefcase, Box, Mail, Award, Trophy, Languages as LanguageIcon, GraduationCap, Menu, X, Sun, Moon, BookOpen } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 interface NavbarProps {
