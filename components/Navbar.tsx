@@ -42,6 +42,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
     { id: 'tools', icon: Box, label: 'Craft' },
     { id: 'education', icon: GraduationCap, label: 'Foundations' },
     { id: 'achievements', icon: Trophy, label: 'Recognition' },
+    { id: 'thoughts', icon: BookOpen, label: 'Thinking out loud' },
     { id: 'languages', icon: LanguageIcon, label: 'Communication' },
     { id: 'contact', icon: Mail, label: 'Contact' },
   ];

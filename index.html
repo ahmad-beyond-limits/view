@@ -4,37 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio | Creative Director & Engineer</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Muhammad Ahmad | Analytics Engineer</title>
+    
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
-        rel="stylesheet">
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        theme: {
-                            bg: 'var(--bg-color)',
-                            text: 'var(--text-color)',
-                            muted: 'var(--text-muted)',
-                            faint: 'var(--text-faint)',
-                            'faint-hover': 'var(--text-faint-hover)',
-                            border: 'var(--border-color)',
-                            'border-faint': 'var(--border-faint)',
-                            accent: 'var(--accent)',
-                            'accent-soft': 'var(--accent-soft)',
-                        }
-                    }
-                }
-            }
-        }
-    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+
     <style>
         :root {
-            /* Light Theme (Default) */
             --bg-color: #FFFFFF;
             --text-color: #050505;
             --text-muted: rgba(5, 5, 5, 0.6);
@@ -47,7 +25,6 @@
         }
 
         .dark {
-            /* Dark Theme */
             --bg-color: #050505;
             --text-color: #FFFFFF;
             --text-muted: rgba(255, 255, 255, 0.5);
@@ -59,71 +36,23 @@
             --accent-soft: rgba(255, 92, 0, 0.05);
         }
 
-        html,
-        body {
+        html, body {
+            margin: 0;
+            padding: 0;
             font-family: 'Plus Jakarta Sans', sans-serif;
             background-color: var(--bg-color);
             color: var(--text-color);
             scroll-behavior: smooth;
             overflow-x: hidden;
             width: 100%;
-            position: relative;
             transition: background-color 0.3s, color 0.3s;
         }
-
-        .text-outline {
-            -webkit-text-stroke: 1px rgba(255, 255, 255, 0.15);
-            color: transparent;
-        }
-
-        .glass {
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        ::-webkit-scrollbar {
-            width: 6px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: #050505;
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: #222;
-            border-radius: 10px;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: var(--accent);
-        }
-
-        @keyframes marquee {
-            0% {
-                transform: translateX(0);
-            }
-
-            100% {
-                transform: translateX(-50%);
-            }
-        }
-
-        .animate-marquee {
-            animation: marquee 30s linear infinite;
-        }
+        
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #050505; }
+        ::-webkit-scrollbar-thumb { background: #222; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--accent); }
     </style>
-    <script type="importmap">
-{
-  "imports": {
-    "lucide-react": "https://esm.sh/lucide-react@^0.562.0",
-    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
-    "react/": "https://esm.sh/react@^19.2.3/",
-    "react": "https://esm.sh/react@^19.2.3"
-  }
-}
-</script>
-    <link rel="stylesheet" href="/index.css">
 </head>
 
 <body>

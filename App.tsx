@@ -5,7 +5,7 @@ import { Projects } from './components/Projects';
 import { ExperienceSection } from './components/ExperienceSection';
 import { ToolsGrid } from './components/ToolsGrid';
 import { Education } from './components/Education';
-import { DesignThoughts } from './components/DesignThoughts';
+import { ThinkingOutLoud } from './components/ThinkingOutLoud';
 import { Research } from './components/Research';
 import { Certifications } from './components/Certifications';
 import { Achievements } from './components/Achievements';
@@ -50,7 +50,8 @@ const App: React.FC = () => {
         <ScrollSummary />
 
         {/* Constrain the rest of the content */}
-        <div className="w-full max-w-[1400px] mx-auto px-4 lg:px-12 space-y-32 py-32">
+        <div className="w-full max-w-[1400px] mx-auto px-4 lg:px-12 space-y-64 py-64">
+
           <section id="work" className="scroll-mt-32">
             <Projects />
           </section>
@@ -61,6 +62,10 @@ const App: React.FC = () => {
 
           <section id="research" className="scroll-mt-32">
             <Research />
+          </section>
+
+          <section id="thoughts" className="scroll-mt-32">
+            <ThinkingOutLoud />
           </section>
 
           <section id="certifications" className="scroll-mt-32">
