@@ -3,46 +3,34 @@ import { motion } from 'framer-motion';
 import { SectionHeader } from './SectionHeader';
 
 export const Certifications: React.FC = () => {
-    const certifications = [
-        {
-            id: 1,
-            title: "100 Days of Code: The Complete Python Pro Bootcamp",
-            issuer: "Udemy",
-            tags: ["Python", "Bootcamp"],
-        },
-        {
-            id: 2,
-            title: "Forward Leadership",
-            issuer: "McKinsey Forward",
-            tags: ["Leadership", "Management"],
-        },
-        {
-            id: 3,
-            title: "Supervised Learning with scikit-learn",
-            issuer: "DataCamp",
-            tags: ["Machine Learning", "Python"],
-        },
-        {
-            id: 4,
-            title: "Introduction to Deep Learning in Python",
-            issuer: "DataCamp",
-            tags: ["Deep Learning", "AI"],
-        }
-    ];
+    // Load certifications
+    const certsData = import.meta.glob('../content/certifications/*.json', { eager: true });
+    const certifications = Object.values(certsData).map((file: any) => file.default || file);
+    certifications.sort((a, b) => (a.order || 0) - (b.order || 0));
+
+    // Load header
+    const headersData = import.meta.glob('../content/headers/certifications.json', { eager: true });
+    const headerPath = Object.keys(headersData)[0];
+    const header: any = headerPath ? (headersData[headerPath] as any).default || headersData[headerPath] : {
+        overline: "VALIDATION",
+        titlePart1: "Bridging the gap with",
+        titlePart2: "specialized knowledge.",
+        description: "A selection of certifications that complement my formal education with practical, industry-leading skills."
+    };
 
     return (
         <div>
             <SectionHeader 
-                overline="VALIDATION"
-                titlePart1="Bridging the gap with"
-                titlePart2="specialized knowledge."
-                description="A selection of certifications that complement my formal education with practical, industry-leading skills."
+                overline={header.overline}
+                titlePart1={header.titlePart1}
+                titlePart2={header.titlePart2}
+                description={header.description}
             />
 
             <div className="w-full flex flex-col border-t border-theme-border">
                 {certifications.map((cert, index) => (
                     <motion.div
-                        key={cert.id}
+                        key={index}
                         initial={{ opacity: 0, y: 30 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, delay: index * 0.1 }}

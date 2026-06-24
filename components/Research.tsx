@@ -4,28 +4,34 @@ import { motion } from 'framer-motion';
 import { SectionHeader } from './SectionHeader';
 
 export const Research: React.FC = () => {
-    const researches = [
-        {
-            id: 1,
-            title: "Multi-Agent system based on PersonaLLM for UX Audit",
-            status: "In Progress",
-            tags: ["AI", "Multi-Agent", "UX Research"],
-        }
-    ];
+    // Load research items
+    const researchData = import.meta.glob('../content/research/*.json', { eager: true });
+    const researches = Object.values(researchData).map((file: any) => file.default || file);
+    researches.sort((a, b) => (a.order || 0) - (b.order || 0));
+
+    // Load header
+    const headersData = import.meta.glob('../content/headers/research.json', { eager: true });
+    const headerPath = Object.keys(headersData)[0];
+    const header: any = headerPath ? (headersData[headerPath] as any).default || headersData[headerPath] : {
+        overline: "CURIOSITY",
+        titlePart1: "Where intelligence meets",
+        titlePart2: "real-world impact.",
+        description: "I am always curious about building intelligent systems and digital experiences that solve meaningful problems and create value."
+    };
 
     return (
     <div>
       <SectionHeader 
-        overline="CURIOSITY"
-        titlePart1="Where intelligence meets"
-        titlePart2="human behavior."
-        description="I study how digital intelligence can be modeled to better understand and support the way we interact as humans."
+        overline={header.overline}
+        titlePart1={header.titlePart1}
+        titlePart2={header.titlePart2}
+        description={header.description}
       />
 
             <div className="w-full flex flex-col border-t border-theme-border">
                 {researches.map((item, index) => (
                     <motion.div
-                        key={item.id}
+                        key={index}
                         initial={{ opacity: 0, y: 100, filter: "blur(20px)", scale: 0.9 }}
                         whileInView={{ opacity: 1, y: 0, filter: "blur(0px)", scale: 1 }}
                         transition={{ duration: 1.4, ease: [0.16, 1, 0.3, 1] }}

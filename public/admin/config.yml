@@ -65,3 +65,75 @@ collections:
       - {label: "Date", name: "date", widget: "string", hint: "e.g., May 2024"}
       - {label: "Read Time", name: "readTime", widget: "string", hint: "e.g., 8 min read"}
       - {label: "External Link", name: "link", widget: "string", required: false}
+  - name: "headers"
+    label: "Section Headers"
+    folder: "content/headers"
+    create: true
+    format: "json"
+    extension: "json"
+    fields:
+      - {label: "Section ID", name: "sectionId", widget: "string"}
+      - {label: "Overline", name: "overline", widget: "string"}
+      - {label: "Title Part 1", name: "titlePart1", widget: "string"}
+      - {label: "Title Part 2", name: "titlePart2", widget: "string"}
+      - {label: "Description", name: "description", widget: "text"}
+  - name: "experience"
+    label: "Experience"
+    folder: "content/experience"
+    create: true
+    format: "json"
+    extension: "json"
+    fields:
+      - {label: "Company", name: "company", widget: "string"}
+      - {label: "Role", name: "role", widget: "string"}
+      - {label: "Period", name: "period", widget: "string"}
+      - {label: "Description", name: "description", widget: "list"}
+      - {label: "Order", name: "order", widget: "number", default: 0}
+  - name: "research"
+    label: "Research"
+    folder: "content/research"
+    create: true
+    format: "json"
+    extension: "json"
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Status", name: "status", widget: "string"}
+      - {label: "Tags", name: "tags", widget: "list"}
+      - {label: "Order", name: "order", widget: "number", default: 0}
+  - name: "certifications"
+    label: "Certifications"
+    folder: "content/certifications"
+    create: true
+    format: "json"
+    extension: "json"
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Issuer", name: "issuer", widget: "string"}
+      - {label: "Tags", name: "tags", widget: "list"}
+      - {label: "Order", name: "order", widget: "number", default: 0}
+  - name: "education"
+    label: "Education"
+    folder: "content/education"
+    create: true
+    format: "json"
+    extension: "json"
+    fields:
+      - {label: "School", name: "school", widget: "string"}
+      - {label: "Degree", name: "degree", widget: "string"}
+      - {label: "Location", name: "location", widget: "string"}
+      - {label: "Period", name: "period", widget: "string"}
+      - {label: "Concentrations", name: "concentrations", widget: "string"}
+      - {label: "Coursework", name: "coursework", widget: "text"}
+      - {label: "Order", name: "order", widget: "number", default: 0}
+  - name: "achievements"
+    label: "Achievements"
+    folder: "content/achievements"
+    create: true
+    format: "json"
+    extension: "json"
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Organization", name: "organization", widget: "string"}
+      - {label: "Date", name: "date", widget: "string"}
+      - {label: "Description", name: "description", widget: "text"}
+      - {label: "Order", name: "order", widget: "number", default: 0}

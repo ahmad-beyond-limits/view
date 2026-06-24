@@ -4,51 +4,34 @@ import { motion } from 'framer-motion';
 import { SectionHeader } from './SectionHeader';
 
 export const ExperienceSection: React.FC = () => {
-  const experiences = [
-    {
-      id: '1',
-      company: 'Stanford University',
-      role: 'CiP Section Leader (Remote)',
-      period: 'March 2025 – May 2025',
-      description: [
-        'Lead weekly section classes for undergraduate computer science students.',
-        'Guide students through complex problem-solving activities and programming exercises.',
-        'Grade assignments and projects with constructive feedback.',
-        'Facilitate code reviews to improve students\' programming skills.',
-        'Explain technical concepts clearly to students with diverse backgrounds.',
-        'Develop leadership and mentorship abilities in an academic setting.',
-        'Boosted my soft skills like Stakeholder Communication and critical thinking as making fast decisions in no time.'
-      ]
-    },
-    {
-      id: '2',
-      company: 'LabLab / Devpost',
-      role: 'Hackathons Participant (Remote, Worldwide)',
-      period: 'June 2024 – Present',
-      description: [
-        'Worked in fast-paced, international teams, coordinating tasks and ensuring collaboration across diverse skill sets.',
-        'Practiced clear and concise communication to align teammates quickly and avoid bottlenecks under tight deadlines.',
-        'Delivered multiple projects within 24–72 hour sprints, balancing competing priorities and ensuring timely completion.',
-        'Strengthened problem-solving resilience by adapting to shifting requirements and constraints in real time.',
-        'Contributed to a culture of team synergy, accountability, and constructive feedback, enabling smoother execution under pressure.',
-        'Gained experience in global collaboration, working with peers across time zones and cultural contexts.'
-      ]
-    },
-  ];
+  // Load experiences
+  const experiencesData = import.meta.glob('../content/experience/*.json', { eager: true });
+  const experiences = Object.values(experiencesData).map((file: any) => file.default || file);
+  experiences.sort((a, b) => (a.order || 0) - (b.order || 0));
+
+  // Load header
+  const headersData = import.meta.glob('../content/headers/experience.json', { eager: true });
+  const headerPath = Object.keys(headersData)[0];
+  const header: any = headerPath ? (headersData[headerPath] as any).default || headersData[headerPath] : {
+    overline: "THE JOURNEY",
+    titlePart1: "Building the pipes that",
+    titlePart2: "carry the truth.",
+    description: "A timeline of my work in engineering and mentorship, focused on making data reliable and accessible."
+  };
 
   return (
     <div>
       <SectionHeader 
-        overline="THE JOURNEY"
-        titlePart1="Building the pipes that"
-        titlePart2="carry the truth."
-        description="A timeline of my work in engineering and mentorship, focused on making data reliable and accessible."
+        overline={header.overline}
+        titlePart1={header.titlePart1}
+        titlePart2={header.titlePart2}
+        description={header.description}
       />
 
       <div className="w-full flex flex-col border-t border-theme-border">
         {experiences.map((exp, index) => (
           <motion.div
-            key={exp.id}
+            key={index}
             initial={{ opacity: 0, y: 100, filter: "blur(20px)", scale: 0.9 }}
             whileInView={{ opacity: 1, y: 0, filter: "blur(0px)", scale: 1 }}
             transition={{ duration: 1.4, ease: [0.16, 1, 0.3, 1] }}
