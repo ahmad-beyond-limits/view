@@ -1,6 +1,10 @@
 {
   "title": "Multi-Agent system based on PersonaLLM for UX Audit",
-  "status": "In Progress",
-  "tags": ["AI", "Multi-Agent", "UX Research"],
+  "status": "Completed",
+  "tags": [
+    "AI",
+    "Multi-Agent",
+    "UX Research"
+  ],
   "order": 1
 }
