@@ -29,7 +29,9 @@ export const Research: React.FC = () => {
       />
 
             <div className="w-full flex flex-col border-t border-theme-border">
-                {researches.map((item, index) => (
+                {researches.map((item, index) => {
+                    const Component = item.link ? 'a' : 'div';
+                    return (
                     <motion.div
                         key={index}
                         initial={{ opacity: 0, y: 100, filter: "blur(20px)", scale: 0.9 }}
@@ -38,7 +40,10 @@ export const Research: React.FC = () => {
                         viewport={{ once: true, margin: "-100px" }}
                         className="w-full"
                     >
-                        <div className="group relative flex flex-col md:flex-row w-full border-b border-theme-border-faint py-16 md:py-24 transition-all cursor-pointer items-start">
+                        <Component 
+                            {...(item.link ? { href: item.link, target: "_blank", rel: "noopener noreferrer" } : {})}
+                            className={`group relative flex flex-col md:flex-row w-full border-b border-theme-border-faint py-16 md:py-24 transition-all items-start ${item.link ? 'cursor-pointer' : 'cursor-default'}`}
+                        >
                             <div className="w-full md:w-1/3 flex-shrink-0 mb-8 md:mb-0 flex items-center md:items-start">
                                 <span className="font-['Playfair_Display'] text-[120px] md:text-[220px] leading-none text-theme-faint group-hover:text-theme-faint-hover transition-colors duration-500 select-none">
                                     {String(index + 1).padStart(2, '0')}
@@ -47,7 +52,7 @@ export const Research: React.FC = () => {
                             
                             <div className="w-full md:w-2/3 flex flex-col justify-center relative h-full">
                                 <div className="mb-6 flex flex-wrap gap-2">
-                                     {item.tags.map(tag => (
+                                     {item.tags?.map((tag: string) => (
                                        <span key={tag} className="text-[10px] font-bold uppercase tracking-[0.2em] px-4 py-2 bg-theme-accent-soft text-theme-accent rounded-full border border-theme-border">
                                          {tag}
                                        </span>
@@ -58,17 +63,21 @@ export const Research: React.FC = () => {
                                     {item.title}
                                 </h3>
                                 
-                                <p className="text-base md:text-lg text-theme-muted group-hover:text-theme-text transition-colors duration-500 max-w-2xl font-medium">
-                                    {item.status}
-                                </p>
+                                {item.description && (
+                                    <p className="text-base md:text-lg text-theme-muted group-hover:text-theme-text transition-colors duration-500 max-w-2xl font-medium line-clamp-3">
+                                        {item.description}
+                                    </p>
+                                )}
 
-                                <div className="absolute right-0 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 translate-x-4 group-hover:translate-x-0 transition-all duration-500 hidden md:flex w-16 h-16 rounded-full border border-theme-border items-center justify-center text-theme-text group-hover:bg-theme-accent group-hover:border-theme-accent group-hover:text-theme-bg">
-                                    <ArrowUpRight size={28} />
-                                </div>
+                                {item.link && (
+                                    <div className="absolute right-0 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 translate-x-4 group-hover:translate-x-0 transition-all duration-500 hidden md:flex w-16 h-16 rounded-full border border-theme-border items-center justify-center text-theme-text group-hover:bg-theme-accent group-hover:border-theme-accent group-hover:text-theme-bg">
+                                        <ArrowUpRight size={28} />
+                                    </div>
+                                )}
                             </div>
-                        </div>
+                        </Component>
                     </motion.div>
-                ))}
+                )})}
             </div>
         </div>
     );
