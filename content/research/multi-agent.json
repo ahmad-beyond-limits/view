@@ -1,10 +1,12 @@
 {
   "title": "Multi-Agent system based on PersonaLLM for UX Audit",
-  "status": "Completed",
+  "description": "From static pixels to actionable UX insights: see how 50 human perspectives interact, prevent broken experiences, and ship better products faster via Gemini 3.",
+  "link": "https://aistudio.google.com/apps/drive/1HWtf1mSrksBw20flk3Xqwkk3GIittIyn?fullscreenApplet=true",
   "tags": [
     "AI",
     "Multi-Agent",
     "UX Research"
   ],
-  "order": 2
+  "order": 2,
+  "status": "Completed"
 }
