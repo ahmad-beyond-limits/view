@@ -1,0 +1,21 @@
+{
+  "id": "",
+  "title": "E-Commerce Checkout A/B + Promo Impact Analysis",
+  "category": "Data Science & Analytics",
+  "type": "Data Analytics and Visualization",
+  "tags": [
+    "Ecomerace Analytics",
+    "A/B Testing",
+    "MS Excel",
+    "Google Sheets"
+  ],
+  "image": "/images/ecom-xl-dashboard.png",
+  "images": [
+    "/images/ecom-xl-dashboard.png"
+  ],
+  "description": "An e-commerce A/B testing dashboard evaluating promotional performance, revenue uplifts, and conversion metrics across different variants and device segments.",
+  "githubLink": "",
+  "link": "https://docs.google.com/spreadsheets/d/1iVkI2-pvm20v7is1Cg9tNxQq3m0TlKmpLc8Rt5BoJ44/edit?usp=sharing",
+  "clickable": true,
+  "figmaLink": ""
+}
