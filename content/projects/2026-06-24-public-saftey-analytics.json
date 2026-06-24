@@ -1,0 +1,19 @@
+{
+  "id": "",
+  "title": "Public Saftey Analytics",
+  "category": "Data Science & Analytics",
+  "type": "BI & Visualization",
+  "tags": [
+    "Power BI",
+    "Python",
+    "Data Warehouse",
+    "Data Analytics",
+    "ETL"
+  ],
+  "image": "/images/LosAngles.png",
+  "description": "How do we transition from reactive policing to proactive, data-driven decision-making? Raw data exists in abundance, but without a structured, analytical backbone, allocating resources effectively and understanding true ground-level trends remains a guessing game. This project bridges that gap by transforming fragmented data into an actionable intelligence hub.",
+  "githubLink": "https://github.com/ahmad-beyond-limits/LosAnglesCrimesAnalytics",
+  "link": "",
+  "clickable": true,
+  "figmaLink": ""
+}
