@@ -1,0 +1,18 @@
+{
+  "id": "",
+  "title": "Marketing Performance Analytics",
+  "category": "Data Science & Analytics",
+  "type": "Marketing Analytics",
+  "tags": [
+    "Looker Studio",
+    "Google Data Studio",
+    "MArketing Analytics"
+  ],
+  "image": "/images/Looker-dashboard.png",
+  "images": [],
+  "description": "A comprehensive marketing performance analytics dashboard tracking key performance indicators like total revenue, conversions, and channel efficiency across multiple regions and platforms.",
+  "githubLink": "",
+  "link": "https://datastudio.google.com/reporting/fa39a75b-7023-4e54-88d5-dcee632ea9e6",
+  "clickable": true,
+  "figmaLink": ""
+}
