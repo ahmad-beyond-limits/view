@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: lead-with-data/view
+  repo: ahmad-beyond-limits/view
   branch: main
   base_url: https://sveltia-cms-auth.ahmad-bsds.workers.dev
   # For local testing, we can use local_backend: true, but Sveltia handles Github OAuth gracefully
