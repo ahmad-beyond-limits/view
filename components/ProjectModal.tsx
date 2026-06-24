@@ -81,6 +81,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
                             <button
                                 onClick={onClose}
                                 className="absolute top-6 right-6 z-20 w-12 h-12 bg-theme-bg/50 backdrop-blur-md rounded-full flex items-center justify-center text-theme-text hover:bg-theme-accent hover:text-white transition-colors border border-theme-border"
+                                aria-label="Close modal"
                             >
                                 <X size={24} />
                             </button>
@@ -90,16 +91,18 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
                                 <div className="w-full md:w-3/5 relative min-h-[300px] bg-theme-border-faint group md:flex-1">
                                     <AnimatePresence mode="wait">
                                         {gallery[currentImageIndex] && (
-                                            <motion.img
-                                                key={gallery[currentImageIndex]}
-                                                src={gallery[currentImageIndex]}
-                                                alt={`${project.title} view ${currentImageIndex + 1}`}
-                                                initial={{ opacity: 0 }}
-                                                animate={{ opacity: 1 }}
-                                                exit={{ opacity: 0 }}
-                                                transition={{ duration: 0.3 }}
-                                                className="w-full h-full object-cover absolute inset-0 block"
-                                            />
+                                                <motion.img
+                                                    key={gallery[currentImageIndex]}
+                                                    src={gallery[currentImageIndex]}
+                                                    alt={`${project.title} view ${currentImageIndex + 1}`}
+                                                    loading="lazy"
+                                                    decoding="async"
+                                                    initial={{ opacity: 0 }}
+                                                    animate={{ opacity: 1 }}
+                                                    exit={{ opacity: 0 }}
+                                                    transition={{ duration: 0.3 }}
+                                                    className="w-full h-full object-cover absolute inset-0 block"
+                                                />
                                         )}
                                     </AnimatePresence>
 
@@ -112,12 +115,14 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
                                             <button
                                                 onClick={prevImage}
                                                 className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-black/30 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-black/60 transition-colors opacity-0 group-hover:opacity-100 z-10"
+                                                aria-label="Previous image"
                                             >
                                                 <ChevronLeft size={24} />
                                             </button>
                                             <button
                                                 onClick={nextImage}
                                                 className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-black/30 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-black/60 transition-colors opacity-0 group-hover:opacity-100 z-10"
+                                                aria-label="Next image"
                                             >
                                                 <ChevronRight size={24} />
                                             </button>
@@ -130,6 +135,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
                                                         onClick={(e) => { e.stopPropagation(); setCurrentImageIndex(idx); }}
                                                         className={`w-2 h-2 rounded-full transition-all ${currentImageIndex === idx ? 'bg-white w-6' : 'bg-white/40 hover:bg-white/70'
                                                             }`}
+                                                        aria-label={`Go to image ${idx + 1}`}
                                                     />
                                                 ))}
                                             </div>

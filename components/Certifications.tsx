@@ -39,21 +39,21 @@ export const Certifications: React.FC = () => {
                     >
                         <div className="group relative flex flex-col md:flex-row w-full border-b border-theme-border-faint py-12 md:py-16 transition-all duration-500 items-center px-4 md:px-8">
                             {/* Col 1: Index Label */}
-                            <div className="w-full md:w-1/6 flex-shrink-0 mb-4 md:mb-0">
+                            <div className="w-full md:w-2/12 flex-shrink-0 mb-4 md:mb-0">
                                 <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-theme-muted transition-colors">
                                     CERT {String(index + 1).padStart(2, '0')}
                                 </span>
                             </div>
                             
                             {/* Col 2: Title */}
-                            <div className="w-full md:w-3/6 mb-4 md:mb-0">
+                            <div className="w-full md:w-6/12 mb-4 md:mb-0">
                                 <h3 className="font-['Playfair_Display'] text-3xl md:text-5xl text-theme-text group-hover:text-theme-accent group-hover:italic transition-all duration-500">
                                     {cert.title}
                                 </h3>
                             </div>
                             
                             {/* Col 3: Details */}
-                            <div className="w-full md:w-2/6">
+                            <div className="w-full md:w-4/12 md:text-right">
                                 <p className="text-sm md:text-base text-theme-muted transition-colors leading-relaxed">
                                     <span className="font-bold text-theme-text block mb-1">{cert.issuer}</span>
                                     {cert.tags.join(' • ')}

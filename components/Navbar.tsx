@@ -62,12 +62,14 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
         <button
           onClick={toggleTheme}
           className="p-3 bg-theme-border-faint backdrop-blur-md rounded-full border border-theme-border text-theme-text"
+          aria-label="Toggle Theme"
         >
           {isDark ? <Sun size={24} /> : <Moon size={24} />}
         </button>
         <button
           onClick={() => setIsOpen(!isOpen)}
           className="p-3 bg-theme-border-faint backdrop-blur-md rounded-full border border-theme-border text-theme-text"
+          aria-label="Toggle Menu"
         >
           {isOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
@@ -113,6 +115,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
               <a
                 key={item.id}
                 href={`#${item.id}`}
+                aria-label={item.label}
                 className={`relative p-3 rounded-full transition-all duration-500 group ${isActive ? 'text-white' : 'text-gray-400 hover:text-black'
                   }`}
               >
@@ -150,6 +153,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
           onClick={toggleTheme}
           className="rounded-full p-3 flex items-center justify-center shadow-2xl border border-black/5 text-gray-400 hover:text-black transition-colors bg-white"
           title={isDark ? "Switch to Light Mode" : "Switch to Dark Mode"}
+          aria-label="Toggle Theme"
         >
           {isDark ? <Sun size={18} /> : <Moon size={18} />}
         </button>

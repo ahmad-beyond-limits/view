@@ -1,3 +1,17 @@
+@import "tailwindcss";
+
+@theme {
+  --color-theme-bg: var(--bg-color);
+  --color-theme-text: var(--text-color);
+  --color-theme-muted: var(--text-muted);
+  --color-theme-faint: var(--text-faint);
+  --color-theme-faint-hover: var(--text-faint-hover);
+  --color-theme-border: var(--border-color);
+  --color-theme-border-faint: var(--border-faint);
+  --color-theme-accent: var(--accent);
+  --color-theme-accent-soft: var(--accent-soft);
+}
+
 /* Custom utility classes */
 .text-outline {
   -webkit-text-stroke: 1px rgba(255, 255, 255, 0.15);
