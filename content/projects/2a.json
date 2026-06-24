@@ -1,6 +1,6 @@
 {
-  "id": "2a",
-  "title": "Olist Retail & E-commerce",
+  "id": "",
+  "title": "Olist Analytics",
   "category": "Data Science & Analytics",
   "type": "Growth Analytics",
   "tags": [
@@ -8,7 +8,13 @@
     "SQL",
     "Power BI"
   ],
-  "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800",
-  "link": "https://github.com/ahmad-bsds/OlistAnalytics",
-  "clickable": true
+  "image": "/images/olist-powerbi.png",
+  "images": [
+    "/images/olist-powerbi.png"
+  ],
+  "description": "This case study leverages the Olist e-commerce dataset from Brazil to explore key drivers of growth, customer experience, and operational efficiency in an online marketplace. By combining exploratory data analysis with stakeholder-driven metrics, this study aims to uncover insights that can guide revenue growth, customer satisfaction, and strategic expansion.",
+  "githubLink": "",
+  "link": "https://www.notion.so/Olist-Store-250959537bd080a19c94e5e0db724c68",
+  "clickable": true,
+  "figmaLink": ""
 }
