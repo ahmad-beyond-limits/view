@@ -1,8 +1,10 @@
 {
   "title": "Maternalink",
-  "status": "Completed",
+  "description": "Bridging frontline health workers directly to facility clinical nurses and district headquarters. Elevate patient outcomes with secure, de-identified risk models powered by Gemma AI.",
+  "link": "https://github.com/ahmad-beyond-limits/Maternalink",
   "tags": [
     "AI"
   ],
-  "order": 1
+  "order": 1,
+  "status": "Completed"
 }
