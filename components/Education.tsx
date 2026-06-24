@@ -51,12 +51,12 @@ export const Education: React.FC = () => {
                                     </span>
                                 </div>
                                 
-                                <h3 className="font-['Playfair_Display'] text-4xl md:text-5xl lg:text-7xl text-theme-text group-hover:italic transition-all duration-500 mb-6 max-w-4xl pr-8">
-                                    {edu.school}
+                                <h3 className="font-['Playfair_Display'] text-3xl md:text-5xl text-theme-text group-hover:italic transition-all duration-500 mb-6 max-w-4xl pr-8">
+                                    {edu.degree}
                                 </h3>
                                 
                                 <p className="text-xl md:text-2xl text-theme-muted group-hover:text-theme-text transition-colors duration-500 max-w-2xl font-medium mb-8">
-                                    {edu.degree}<br/>
+                                    {edu.school}<br/>
                                     <span className="text-lg opacity-80">{edu.location}</span>
                                 </p>
 

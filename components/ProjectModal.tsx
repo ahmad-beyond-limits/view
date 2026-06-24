@@ -8,7 +8,7 @@ interface Project {
     type: string;
     tags: string[];
     image: string;
-    images?: string[]; // Array of images for carousel
+    images?: string[];
     link?: string;
     figmaLink?: string;
     githubLink?: string;
@@ -26,7 +26,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
     useEffect(() => {
         if (project) {
             document.body.style.overflow = 'hidden';
-            setCurrentImageIndex(0); // Reset to first image when project opens
+            setCurrentImageIndex(0);
         } else {
             document.body.style.overflow = 'unset';
         }
@@ -35,8 +35,15 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
         };
     }, [project]);
 
-    // Combine main image with additional images if present, preventing duplicates if image is already in images
-    const gallery = project ? (project.images && project.images.length > 0 ? project.images : [project.image]) : [];
+    const baseUrl = import.meta.env.BASE_URL || '/';
+    const formatUrl = (url: string) => {
+        if (!url) return '';
+        if (url.startsWith('http') || url.startsWith('data:')) return url;
+        return `${baseUrl}${url.startsWith('/') ? url.slice(1) : url}`;
+    };
+
+    const rawGallery = project ? (project.images && project.images.length > 0 ? project.images : [project.image]) : [];
+    const gallery = rawGallery.map(formatUrl);
 
     const nextImage = (e?: React.MouseEvent) => {
         e?.stopPropagation();
@@ -60,7 +67,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
                         onClick={onClose}
-                        className="fixed inset-0 bg-black/80 backdrop-blur-md z-[60] flex items-center justify-center p-4 md:p-8"
+                        className="fixed inset-0 bg-black/60 dark:bg-black/80 backdrop-blur-md z-[60] flex items-center justify-center p-4 md:p-8"
                     >
                         {/* Modal Container */}
                         <motion.div
@@ -68,33 +75,36 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
                             animate={{ scale: 1, opacity: 1, y: 0 }}
                             exit={{ scale: 0.9, opacity: 0, y: 20 }}
                             onClick={(e) => e.stopPropagation()}
-                            className="bg-[#111] border border-white/10 w-full max-w-5xl max-h-[90vh] rounded-[2.5rem] overflow-hidden flex flex-col shadow-2xl relative"
+                            className="bg-theme-bg border border-theme-border w-full max-w-5xl max-h-[90vh] rounded-[2.5rem] overflow-hidden flex flex-col shadow-2xl relative"
                         >
                             {/* Close Button */}
                             <button
                                 onClick={onClose}
-                                className="absolute top-6 right-6 z-20 w-12 h-12 bg-black/50 backdrop-blur-md rounded-full flex items-center justify-center text-white hover:bg-[#FF5C00] transition-colors border border-white/10"
+                                className="absolute top-6 right-6 z-20 w-12 h-12 bg-theme-bg/50 backdrop-blur-md rounded-full flex items-center justify-center text-theme-text hover:bg-theme-accent hover:text-white transition-colors border border-theme-border"
                             >
                                 <X size={24} />
                             </button>
 
-                            <div className="flex flex-col md:flex-row h-full overflow-y-auto md:overflow-hidden">
+                            <div className="flex flex-col md:flex-row h-full overflow-hidden">
                                 {/* Image Carousel Section */}
-                                <div className="w-full md:w-3/5 relative min-h-[300px] bg-black group md:flex-1">
+                                <div className="w-full md:w-3/5 relative min-h-[300px] bg-theme-border-faint group md:flex-1">
                                     <AnimatePresence mode="wait">
-                                        <motion.img
-                                            key={currentImageIndex}
-                                            src={gallery[currentImageIndex]}
-                                            alt={`${project.title} view ${currentImageIndex + 1}`}
-                                            initial={{ opacity: 0 }}
-                                            animate={{ opacity: 1 }}
-                                            exit={{ opacity: 0 }}
-                                            transition={{ duration: 0.3 }}
-                                            className="w-full h-full object-cover absolute inset-0 block"
-                                        />
+                                        {gallery[currentImageIndex] && (
+                                            <motion.img
+                                                key={gallery[currentImageIndex]}
+                                                src={gallery[currentImageIndex]}
+                                                alt={`${project.title} view ${currentImageIndex + 1}`}
+                                                initial={{ opacity: 0 }}
+                                                animate={{ opacity: 1 }}
+                                                exit={{ opacity: 0 }}
+                                                transition={{ duration: 0.3 }}
+                                                className="w-full h-full object-cover absolute inset-0 block"
+                                            />
+                                        )}
                                     </AnimatePresence>
 
-                                    <div className="absolute inset-0 bg-gradient-to-t from-[#111] via-transparent to-transparent md:bg-gradient-to-r md:from-transparent md:to-[#111]/80 pointer-events-none"></div>
+                                    {/* Gradient Overlay for light/dark theme transition over image */}
+                                    <div className="absolute inset-0 bg-gradient-to-t from-theme-bg via-transparent to-transparent md:bg-gradient-to-r md:from-transparent md:to-theme-bg opacity-80 pointer-events-none"></div>
 
                                     {/* Navigation Controls */}
                                     {gallery.length > 1 && (
@@ -128,22 +138,17 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
                                 </div>
 
                                 {/* Content Section */}
-                                <div className="w-full md:w-2/5 p-8 md:p-12 flex flex-col justify-center bg-[#111]">
+                                <div className="w-full md:w-2/5 p-8 md:p-12 flex flex-col bg-theme-bg overflow-y-auto">
                                     <div className="mb-8">
-                                        <div className="flex flex-wrap gap-2 mb-6">
-                                            {project.tags.map((tag) => (
-                                                <span key={tag} className="text-[10px] font-black uppercase tracking-[0.2em] px-3 py-1 bg-white/5 border border-white/5 rounded-full text-neutral-500">
-                                                    {tag}
-                                                </span>
-                                            ))}
-                                        </div>
-                                        <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tighter mb-4 text-white">
+                                        <h2 className="font-['Playfair_Display'] text-3xl md:text-5xl text-theme-text mb-4 pr-8">
                                             {project.title}
                                         </h2>
-                                        <p className="text-[#FF5C00] font-bold uppercase tracking-[0.2em] text-sm mb-6">
+                                        
+                                        <p className="text-theme-accent font-bold uppercase tracking-[0.2em] text-xs mb-6">
                                             {project.type}
                                         </p>
-                                        <p className="text-neutral-400 leading-relaxed font-medium mb-8">
+                                        
+                                        <p className="text-theme-muted leading-relaxed text-base font-medium mb-8 line-clamp-6">
                                             {project.description || "A comprehensive design project showcasing user-centric solutions and innovative visual identity."}
                                         </p>
                                     </div>
@@ -154,7 +159,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
                                                 href={project.figmaLink}
                                                 target="_blank"
                                                 rel="noopener noreferrer"
-                                                className="w-full bg-[#1E1E1E] hover:bg-[#FF5C00] text-white border border-white/10 rounded-2xl p-4 flex items-center justify-center gap-3 transition-colors group"
+                                                className="w-full bg-theme-bg text-theme-text border border-theme-border hover:border-theme-accent hover:text-theme-accent rounded-2xl p-4 flex items-center justify-center gap-3 transition-colors group"
                                             >
                                                 <Figma size={24} className="group-hover:scale-110 transition-transform" />
                                                 <span className="font-bold">Open in Figma</span>
@@ -166,7 +171,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
                                                 href={project.githubLink}
                                                 target="_blank"
                                                 rel="noopener noreferrer"
-                                                className="w-full bg-[#1E1E1E] hover:bg-[#FF5C00] text-white border border-white/10 rounded-2xl p-4 flex items-center justify-center gap-3 transition-colors group"
+                                                className="w-full bg-theme-bg text-theme-text border border-theme-border hover:border-theme-accent hover:text-theme-accent rounded-2xl p-4 flex items-center justify-center gap-3 transition-colors group"
                                             >
                                                 <Github size={24} className="group-hover:scale-110 transition-transform" />
                                                 <span className="font-bold">Open in GitHub</span>
@@ -178,7 +183,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
                                                 href={project.link}
                                                 target="_blank"
                                                 rel="noopener noreferrer"
-                                                className="w-full bg-white text-black hover:bg-neutral-200 rounded-2xl p-4 flex items-center justify-center gap-3 transition-colors font-bold"
+                                                className="w-full bg-theme-text text-theme-bg hover:opacity-90 rounded-2xl p-4 flex items-center justify-center gap-3 transition-opacity font-bold"
                                             >
                                                 <ExternalLink size={20} />
                                                 <span>View Project</span>

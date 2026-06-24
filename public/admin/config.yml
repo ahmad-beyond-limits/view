@@ -61,6 +61,7 @@ collections:
           widget: "select", 
           options: ["Strategy", "Design", "Analytics", "Engineering", "Business"]
         }
+      - {label: "Main Image", name: "image", widget: "image", required: false}
       - {label: "Excerpt", name: "excerpt", widget: "text"}
       - {label: "Date", name: "date", widget: "string", hint: "e.g., May 2024"}
       - {label: "Read Time", name: "readTime", widget: "string", hint: "e.g., 8 min read"}

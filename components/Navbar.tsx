@@ -113,13 +113,12 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
               <a
                 key={item.id}
                 href={`#${item.id}`}
-                className={`relative p-3 rounded-full transition-all duration-500 group overflow-hidden ${isActive ? 'text-white' : 'text-gray-400 hover:text-black'
+                className={`relative p-3 rounded-full transition-all duration-500 group ${isActive ? 'text-white' : 'text-gray-400 hover:text-black'
                   }`}
-                title={item.label}
               >
                 {/* Background Glow for Active State */}
                 {isActive && (
-                  <div className="absolute inset-0 bg-[#0812F9] transition-all duration-500" />
+                  <div className="absolute inset-0 rounded-full bg-[#0812F9] transition-all duration-500" />
                 )}
 
                 {/* Subtle Hover Ring */}
@@ -133,10 +132,14 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
                   className="relative z-10 transition-transform duration-300 group-active:scale-90"
                 />
 
-                {/* Indicator Dot for Active */}
-                {isActive && (
-                  <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 bg-theme-accent rounded-full z-20" style={{boxShadow: '0 0 8px var(--accent)'}} />
-                )}
+
+
+                {/* Custom Tooltip */}
+                <div className="absolute top-[140%] left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-50">
+                  <div className="bg-black text-white text-[10px] font-bold tracking-widest uppercase px-3 py-1.5 rounded-full shadow-xl whitespace-nowrap border border-white/10">
+                    {item.label}
+                  </div>
+                </div>
               </a>
             );
           })}

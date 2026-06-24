@@ -37,10 +37,10 @@ export const Achievements: React.FC = () => {
                         viewport={{ once: true }}
                         className="w-full"
                     >
-                        <div className="group relative flex flex-col md:flex-row w-full border-b border-theme-border-faint py-12 md:py-16 transition-all duration-500 hover:bg-theme-accent-soft items-center px-4 md:px-8 border-l-0 hover:border-l-8 hover:border-theme-accent">
+                        <div className="group relative flex flex-col md:flex-row w-full border-b border-theme-border-faint py-12 md:py-16 transition-all duration-500 items-center px-4 md:px-8">
                             {/* Col 1: Label */}
                             <div className="w-full md:w-1/6 flex-shrink-0 mb-4 md:mb-0">
-                                <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-theme-muted group-hover:text-theme-accent transition-colors">
+                                <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-theme-muted transition-colors">
                                     HONOR {String(index + 1).padStart(2, '0')}
                                 </span>
                             </div>
@@ -54,7 +54,7 @@ export const Achievements: React.FC = () => {
                             
                             {/* Col 3: Details */}
                             <div className="w-full md:w-2/6">
-                                <div className="text-sm md:text-base text-theme-muted group-hover:text-theme-text transition-colors leading-relaxed">
+                                <div className="text-sm md:text-base text-theme-muted transition-colors leading-relaxed">
                                     <div className="flex justify-between items-start mb-1">
                                         <span className="font-bold text-theme-text">{item.organization}</span>
                                         <span className="text-[10px] font-bold opacity-60">{item.date}</span>

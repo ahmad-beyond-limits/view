@@ -58,7 +58,7 @@ export const DesignThoughts: React.FC = () => {
                   </span>
                 </div>
                 
-                <h3 className="font-['Playfair_Display'] text-4xl md:text-5xl lg:text-7xl text-theme-text group-hover:italic transition-all duration-500 mb-6 max-w-4xl pr-8">
+                <h3 className="font-['Playfair_Display'] text-3xl md:text-5xl text-theme-text group-hover:italic transition-all duration-500 mb-6 max-w-4xl pr-8">
                   {post.title}
                 </h3>
                 

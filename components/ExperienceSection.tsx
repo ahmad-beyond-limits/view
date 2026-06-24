@@ -52,12 +52,12 @@ export const ExperienceSection: React.FC = () => {
                   </span>
                 </div>
                 
-                <h3 className="font-['Playfair_Display'] text-4xl md:text-5xl lg:text-7xl text-theme-text group-hover:italic transition-all duration-500 mb-4 max-w-4xl pr-8">
-                  {exp.company}
+                <h3 className="font-['Playfair_Display'] text-3xl md:text-5xl text-theme-text group-hover:italic transition-all duration-500 mb-4 max-w-4xl pr-8">
+                  {exp.role}
                 </h3>
                 
                 <h4 className="text-xl md:text-2xl text-theme-accent font-bold mb-8">
-                  {exp.role}
+                  {exp.company}
                 </h4>
 
                 <ul className="space-y-4 list-none text-theme-muted leading-relaxed text-lg max-w-3xl">

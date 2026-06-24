@@ -1,6 +1,6 @@
-import React from 'react';
+﻿import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowUpRight, Clock } from 'lucide-react';
+import { ArrowUpRight } from 'lucide-react';
 import { SectionHeader } from './SectionHeader';
 
 interface Article {
@@ -11,15 +11,18 @@ interface Article {
   category: string;
   link: string;
   order: number;
+  image?: string;
 }
 
 export const ThinkingOutLoud: React.FC = () => {
   // Load all JSON articles dynamically
   const articleModules = import.meta.glob('../content/articles/*.json', { eager: true });
-  const allArticles = Object.values(articleModules).map((m: any) => m.default || m);
+  const allArticles = Object.values(articleModules).map((m: any) => m.default || m) as Article[];
   
   // Sort articles by order
   const articles = [...allArticles].sort((a, b) => (a.order || 0) - (b.order || 0));
+
+  if (articles.length === 0) return null;
 
   return (
     <section id="thoughts" className="py-24">
@@ -32,52 +35,55 @@ export const ThinkingOutLoud: React.FC = () => {
           description="Honest thoughts on data, decisions, and what actually works in the real world."
         />
 
-        {/* List Layout - Matching Project Typography */}
-        <div className="flex flex-col border-t border-theme-border">
-          {articles.map((article, index) => (
-            <motion.a
-              key={index}
-              href={article.link}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="group relative flex flex-col md:flex-row items-start md:items-center justify-between py-16 md:py-24 border-b border-theme-border hover:bg-theme-faint transition-all duration-500 px-4 md:px-8 -mx-4 md:-mx-8 overflow-hidden"
-            >
-              {/* Highlight Bar */}
-              <div className="absolute left-0 top-0 bottom-0 w-0 bg-theme-accent transition-all duration-500 group-hover:w-1"></div>
+        <div className="flex flex-col mt-12 gap-16">
+          {/* GRID ARTICLES (3 Columns - Square Cards) */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+            {articles.map((article, index) => (
+              <motion.a
+                href={article.link}
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: index * 0.1 }}
+                className="group relative flex flex-col w-full aspect-square bg-theme-bg border border-theme-border/60 hover:border-theme-border transition-all duration-500 hover:-translate-y-2 p-6 md:p-8 overflow-hidden"
+              >
+                {/* Optional Image Background (fades in on hover or stays subtle) */}
+                {article.image && (
+                  <div className="absolute inset-0 z-0 opacity-0 group-hover:opacity-20 transition-opacity duration-700 pointer-events-none">
+                    <img src={article.image} className="w-full h-full object-cover" alt="" />
+                    <div className="absolute inset-0 bg-theme-bg/50"></div>
+                  </div>
+                )}
 
-              <div className="flex-1 flex flex-col gap-4">
-                {/* Meta Tags - Matching Project Tag Style */}
-                <div className="flex flex-wrap gap-3 mb-4">
-                  <span className="text-[10px] font-bold uppercase tracking-[0.2em] px-4 py-2 bg-theme-accent-soft text-theme-accent rounded-full border border-theme-border">
-                    {article.category}
+                {/* Top Row: Number & Icon */}
+                <div className="relative z-10 flex justify-between items-start w-full">
+                  <span className="text-3xl md:text-4xl font-black text-theme-text tracking-tighter">
+                    {String(index + 1).padStart(2, '0')}
                   </span>
-                  <div className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.2em] px-4 py-2 text-theme-muted">
-                    <Clock size={12} className="text-theme-accent" />
+                  
+                  <div className="w-10 h-10 rounded-full bg-theme-border-faint flex items-center justify-center text-theme-text group-hover:bg-theme-text group-hover:text-theme-bg transition-colors duration-300">
+                    <ArrowUpRight size={18} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300" />
+                  </div>
+                </div>
+
+                {/* Bottom Row: Content */}
+                <div className="relative z-10 mt-auto flex flex-col w-full">
+                  <h3 className="text-xl md:text-2xl font-bold text-theme-text mb-2 line-clamp-2">
+                    {article.title}
+                  </h3>
+                  <p className="text-sm text-theme-muted line-clamp-2 mb-4 leading-relaxed">
+                    {article.excerpt}
+                  </p>
+                  <div className="flex items-center gap-2 text-xs text-theme-muted font-medium">
+                    <span>{article.category}</span>
+                    <span>•</span>
                     <span>{article.readTime}</span>
                   </div>
                 </div>
-                
-                <h3 className="font-['Playfair_Display'] text-2xl md:text-3xl lg:text-4xl text-theme-text group-hover:italic transition-all duration-500 max-w-4xl pr-8">
-                  {article.title}
-                </h3>
-                
-                <p className="text-base md:text-lg text-theme-muted group-hover:text-theme-text transition-colors duration-500 max-w-2xl font-medium mt-2">
-                  {article.excerpt}
-                </p>
-              </div>
-
-              <div className="mt-8 md:mt-0 flex items-center gap-8">
-                <span className="text-[10px] font-bold tracking-[0.3em] uppercase text-theme-muted whitespace-nowrap">
-                  {article.date}
-                </span>
-                <div className="w-16 h-16 rounded-full border border-theme-border flex items-center justify-center group-hover:bg-theme-accent group-hover:border-theme-accent group-hover:text-theme-bg transition-all duration-500">
-                  <ArrowUpRight size={28} />
-                </div>
-              </div>
-            </motion.a>
-          ))}
+              </motion.a>
+            ))}
+          </div>
         </div>
       </div>
     </section>

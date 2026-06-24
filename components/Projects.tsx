@@ -61,7 +61,7 @@ export const Projects: React.FC = () => {
                      ))}
                   </div>
                   
-                  <h3 className="font-['Playfair_Display'] text-2xl md:text-3xl lg:text-5xl text-theme-text group-hover:italic transition-all duration-500 mb-4 max-w-4xl pr-8">
+                  <h3 className="font-['Playfair_Display'] text-3xl md:text-5xl text-theme-text group-hover:italic transition-all duration-500 mb-4 max-w-4xl pr-8">
                     {p.title}
                   </h3>
                   
