@@ -1,0 +1,20 @@
+{
+  "id": "",
+  "title": "NeuralBridge Marketing Analytics",
+  "category": "Data Science & Analytics",
+  "type": "Marketing Analytics",
+  "tags": [
+    "Power BI",
+    "SQL",
+    "Databricks"
+  ],
+  "image": "/images/olist-powerbi.png",
+  "images": [
+    "/images/marketing-powerbi.png"
+  ],
+  "description": "This analytics project aims to diagnose the three compounding bottlenecks that emerged in Q3 2024 to derail demand generation. It will specifically analyze the efficiency of the $1.7M marketing spend against the target of acquiring 420 new customers. Ultimately, the project will provide data-driven solutions to rescue the board-approved growth mandate of reaching $18M ARR by the end of 2025.",
+  "githubLink": "https://github.com/ahmad-beyond-limits/NeuralBridge-MarketingAnalytics",
+  "link": "",
+  "clickable": true,
+  "figmaLink": ""
+}
