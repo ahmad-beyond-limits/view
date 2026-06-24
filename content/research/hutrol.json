@@ -1,0 +1,10 @@
+{
+  "title": "Hutrol",
+  "description": "Hutrol is an enterprise-grade, agentic Command Line Interface (CLI) harness designed to bring autonomous AI capabilities directly to your operating system, wrapped in a deterministic, highly secure, and fully auditable execution layer.",
+  "link": "https://github.com/ahmad-beyond-limits/Hutrol",
+  "tags": [
+    "AI",
+    "Windows Powershell"
+  ],
+  "order": 3
+}
