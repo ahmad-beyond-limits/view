@@ -1,0 +1,10 @@
+{
+  "title": "LLM as Judge Research Experiemnt",
+  "description": "We want to evaluate the capability of Large Language Models (LLMs) to serve as predictive \"world models\" for natural disaster impact assessment. Specifically, we want to simulate how human populations perceive and report earthquake shaking intensity (Modified Mercalli Intensity, or MMI) during the (2019 Ridgecrest Earthquake (M 7.1)).",
+  "link": "",
+  "tags": [
+    "AI",
+    "Research"
+  ],
+  "order": 4
+}
