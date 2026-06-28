@@ -1,0 +1,10 @@
+{
+  "title": "PeerAudit: Auditing LLM Reviewer Bias via Small Local Simulations",
+  "description": "While large, proprietary cloud models show promise as automated peer reviewers, it remains unclear if lightweight, locally deployable alternatives can achieve comparable results. To address this, this study investigates the offline capabilities and limitations of the Qwen3-VL-4B-Instruct-GGUF (Q4_K_M) model using llama.cpp. Rather than proposing a fully automated system, the research focuses on auditing the model to determine how closely it replicates human reviewing behaviors. Through this simulation, the goal is to uncover and analyze any systematic biases inherent in a small, localized LLM's evaluations.",
+  "link": "https://github.com/ahmad-beyond-limits/PeerAudit",
+  "tags": [
+    "AI",
+    "Research"
+  ],
+  "order": 5
+}
